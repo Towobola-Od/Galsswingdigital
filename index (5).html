@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glasswing Digital — Custom Websites for Small Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5ECD8; --linen:#EDE0C4; --biscuit:#D9C9A8;
+  --teal:#1D6E7E; --teal-bright:#2A9BAF; --teal-pale:#A8D8DF;
+  --espresso:#2C1A0E; --dark-roast:#3D2510; --walnut:#6B4226;
+  --caramel:#C47B3A; --ink:#1A0F08; --muted:#7A6550;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;font-weight:400;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--cream);border-bottom:1px solid var(--biscuit);padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo svg{width:32px;height:32px}
+.logo-wm{font-weight:500;font-size:18px;color:var(--teal);letter-spacing:-.02em}
+.logo-wm span{color:var(--biscuit)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{text-decoration:none;font-size:14px;color:var(--muted);font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{background:var(--caramel);color:#fff !important;padding:9px 22px;border-radius:40px;font-size:14px !important;font-weight:500 !important;transition:background .2s,transform .15s !important}
+.nav-cta:hover{background:var(--walnut) !important;transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;padding:0 6%;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--espresso)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(29,110,126,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(29,110,126,.06) 1px,transparent 1px);background-size:60px 60px}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(29,110,126,.13) 0%,transparent 70%);top:-150px;right:-200px;pointer-events:none}
+.hero-content{max-width:720px;position:relative;z-index:1;animation:fadeUp .9s ease both}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(29,110,126,.2);color:var(--teal-pale);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:40px;margin-bottom:32px;border:1px solid rgba(29,110,126,.3)}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal-pale);opacity:.7}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(44px,6.5vw,84px);line-height:1.05;color:var(--cream);margin-bottom:28px;font-weight:400}
+.hero h1 em{font-style:italic;color:var(--teal-pale)}
+.hero-sub{font-size:18px;color:rgba(245,236,216,.6);line-height:1.7;max-width:520px;margin-bottom:48px;font-weight:300}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--caramel);color:#fff;padding:14px 34px;border-radius:40px;text-decoration:none;font-size:15px;font-weight:500;transition:background .2s,transform .15s;display:inline-block}
+.btn-primary:hover{background:var(--walnut);transform:translateY(-2px)}
+.btn-ghost{color:var(--teal-pale);text-decoration:none;font-size:15px;font-weight:400;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(168,216,223,.25);padding:13px 26px;border-radius:40px;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:rgba(168,216,223,.6);color:var(--cream)}
+.hero-scroll{position:absolute;bottom:40px;left:6%;display:flex;align-items:center;gap:12px;color:rgba(245,236,216,.3);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.scroll-line{width:40px;height:1px;background:rgba(245,236,216,.2)}
+
+/* TICKER */
+.ticker{background:var(--teal);padding:16px 0;overflow:hidden}
+.ticker-track{display:flex;animation:ticker 30s linear infinite;white-space:nowrap}
+.ticker-item{display:inline-flex;align-items:center;gap:16px;padding:0 28px;font-size:13px;color:rgba(245,236,216,.7);font-weight:400}
+.ticker-item strong{color:var(--cream);font-weight:500}
+.tdot{width:4px;height:4px;border-radius:50%;background:rgba(245,236,216,.3);flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SHARED */
+.lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--caramel);font-weight:500;margin-bottom:14px}
+.lbl.inv{color:rgba(168,216,223,.6)}
+.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.8vw,50px);line-height:1.15;color:var(--espresso);font-weight:400;margin-bottom:18px}
+.sec-title em{font-style:italic;color:var(--teal)}
+.sec-title.inv{color:var(--cream)}
+.sec-title.inv em{color:var(--teal-pale)}
+.sec-sub{font-size:16px;color:var(--muted);line-height:1.7;font-weight:300}
+.sec-sub.inv{color:rgba(245,236,216,.5)}
+
+/* ICON CARDS */
+.cards-section{padding:110px 6%;background:var(--cream)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;background:var(--biscuit);border:1px solid var(--biscuit);border-radius:20px;overflow:hidden;margin-top:56px}
+.card{background:var(--cream);padding:48px 36px;transition:background .25s}
+.card:hover{background:var(--linen)}
+.card-icon{width:52px;height:52px;background:var(--espresso);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:28px}
+.card-icon svg{width:22px;height:22px;stroke:var(--teal-pale);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-family:'DM Serif Display',serif;font-size:24px;font-weight:400;color:var(--espresso);margin-bottom:12px}
+.card p{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:24px}
+.card-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.card-list li{font-size:13px;color:var(--walnut);display:flex;align-items:center;gap:10px}
+.card-list li::before{content:'';width:14px;height:1px;background:var(--caramel);flex-shrink:0}
+
+/* ALTERNATING */
+.alt{padding:110px 6%}
+.alt.linen{background:var(--linen)}
+.alt.dark{background:var(--espresso)}
+.alt.cream{background:var(--cream)}
+.alt-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.alt-row.rev .alt-visual{order:-1}
+.alt-text h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,3.5vw,46px);font-weight:400;line-height:1.2;color:var(--espresso);margin-bottom:18px}
+.alt-text h2 em{font-style:italic;color:var(--teal)}
+.alt-text.inv h2{color:var(--cream)}
+.alt-text.inv h2 em{color:var(--teal-pale)}
+.alt-text p{font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:14px}
+.alt-text.inv p{color:rgba(245,236,216,.5)}
+.alt-text p:last-of-type{margin-bottom:32px}
+.alt-link{display:inline-flex;align-items:center;gap:10px;color:var(--teal);text-decoration:none;font-size:14px;font-weight:500;border-bottom:1px solid rgba(29,110,126,.3);padding-bottom:3px;transition:gap .2s,border-color .2s}
+.alt-link:hover{gap:14px;border-color:var(--teal)}
+.alt-link.inv{color:var(--teal-pale);border-color:rgba(168,216,223,.3)}
+.alt-link.inv:hover{border-color:var(--teal-pale)}
+
+/* BROWSER MOCK */
+.browser{border-radius:14px;overflow:hidden;border:1px solid rgba(245,236,216,.07);box-shadow:0 24px 64px rgba(0,0,0,.3)}
+.b-bar{background:#1e1209;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.b-dots{display:flex;gap:6px}
+.b-dot{width:10px;height:10px;border-radius:50%}
+.b-url{flex:1;background:rgba(255,255,255,.07);border-radius:6px;height:24px;display:flex;align-items:center;padding:0 12px;font-size:11px;color:rgba(245,236,216,.3);font-family:monospace}
+.b-body{background:var(--dark-roast);padding:0}
+.m-hero{background:var(--espresso);padding:28px 24px 24px}
+.m-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.m-logo{width:56px;height:8px;background:var(--teal);border-radius:4px;opacity:.75}
+.m-navr{display:flex;gap:8px}
+.m-nl{width:24px;height:5px;background:rgba(245,236,216,.18);border-radius:3px}
+.m-nb{width:44px;height:16px;background:var(--caramel);border-radius:20px;opacity:.75}
+.m-h{height:13px;background:var(--cream);border-radius:6px;margin-bottom:8px;opacity:.85}
+.m-s{height:7px;background:rgba(245,236,216,.25);border-radius:4px;margin-bottom:6px}
+.m-ctarow{display:flex;gap:8px;margin-top:16px}
+.m-cta{height:20px;border-radius:20px}
+.m-cp{width:72px;background:var(--caramel);opacity:.85}
+.m-cs{width:56px;background:rgba(168,216,223,.18);border:1px solid rgba(168,216,223,.22)}
+.m-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:18px 24px}
+.m-card{background:rgba(245,236,216,.04);border:1px solid rgba(245,236,216,.07);border-radius:8px;padding:12px}
+.m-ci{width:20px;height:20px;border-radius:6px;margin-bottom:9px}
+.m-ct{height:7px;background:rgba(245,236,216,.3);border-radius:4px;margin-bottom:7px;width:70%}
+.m-cb{height:5px;background:rgba(245,236,216,.13);border-radius:3px;margin-bottom:5px}
+
+/* SEO VISUAL */
+.seo-vis{border-radius:14px;background:var(--dark-roast);border:1px solid rgba(245,236,216,.06);padding:28px}
+.seo-lbl{font-size:11px;color:var(--teal-pale);opacity:.55;margin-bottom:16px;letter-spacing:.08em;text-transform:uppercase}
+.seo-bars{display:flex;align-items:flex-end;gap:6px;height:96px;margin-bottom:16px}
+.sb{flex:1;border-radius:4px 4px 0 0;background:var(--teal);opacity:.3}
+.sb.hi{opacity:.85;background:var(--teal-bright)}
+.seo-time{font-size:10px;color:rgba(245,236,216,.2);margin-bottom:20px;display:flex;justify-content:space-between}
+.rank-list{display:flex;flex-direction:column;gap:9px}
+.rank-row{display:flex;align-items:center;gap:12px}
+.rank-n{font-size:11px;color:var(--caramel);font-weight:500;width:14px}
+.rank-bw{flex:1;height:5px;background:rgba(255,255,255,.07);border-radius:3px}
+.rank-b{height:100%;border-radius:3px;background:var(--teal)}
+.rank-l{font-size:11px;color:rgba(245,236,216,.35);width:44px;text-align:right}
+
+/* PROCESS */
+.process{padding:110px 6%;background:var(--espresso)}
+.proc-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;margin-top:56px}
+.proc-step{padding:40px 32px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:4px;transition:background .3s}
+.proc-step:hover{background:rgba(255,255,255,.06)}
+.step-n{font-family:'DM Serif Display',serif;font-size:48px;font-weight:400;color:rgba(29,110,126,.18);line-height:1;margin-bottom:20px;display:block}
+.proc-step h4{font-size:15px;font-weight:500;color:var(--cream);margin-bottom:10px}
+.proc-step p{font-size:13px;color:rgba(245,236,216,.42);line-height:1.7;font-weight:300}
+
+/* CTA */
+.cta-sec{padding:120px 6%;background:var(--teal);text-align:center;position:relative;overflow:hidden}
+.cta-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.08);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-sec h2{font-family:'DM Serif Display',serif;font-size:clamp(32px,5vw,62px);font-weight:400;color:var(--cream);line-height:1.15;margin-bottom:18px;position:relative;z-index:1}
+.cta-sec h2 em{font-style:italic;color:var(--teal-pale)}
+.cta-sec p{font-size:17px;color:rgba(245,236,216,.58);margin-bottom:44px;font-weight:300;position:relative;z-index:1}
+.btn-cta{display:inline-block;background:var(--cream);color:var(--teal);padding:16px 40px;border-radius:40px;text-decoration:none;font-size:15px;font-weight:500;transition:background .2s,color .2s,transform .15s;position:relative;z-index:1}
+.btn-cta:hover{background:var(--espresso);color:var(--cream);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:var(--espresso);border-top:1px solid rgba(255,255,255,.05);padding:56px 6% 32px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.f-logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px}
+.f-logo svg{width:28px;height:28px}
+.f-wm{font-weight:500;font-size:16px;color:rgba(245,236,216,.55);letter-spacing:-.02em}
+.f-bio{font-size:13px;color:rgba(245,236,216,.32);line-height:1.7;font-weight:300;max-width:280px}
+.f-col h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,236,216,.32);font-weight:500;margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col ul a{text-decoration:none;font-size:13px;color:rgba(245,236,216,.42);transition:color .2s}
+.f-col ul a:hover{color:rgba(245,236,216,.8)}
+.footer-btm{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-copy{font-size:12px;color:rgba(245,236,216,.2)}
+.f-email{font-size:12px;color:rgba(29,110,126,.55);text-decoration:none;transition:color .2s}
+.f-email:hover{color:var(--teal-pale)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:900px){
+  .alt-row{grid-template-columns:1fr;gap:40px}
+  .alt-row.rev .alt-visual{order:0}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-top .footer-brand{grid-column:1/-1}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 40 40" fill="none">
+      <path d="M20 8C14 8 8 12 8 18c0 4 3 7 7 8 0 0-2 4-2 6 2-1 4-3 5-5 .6.1 1.3.2 2 .2" stroke="#1D6E7E" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M20 8c6 0 12 4 12 10 0 4-3 7-7 8 0 0 2 4 2 6-2-1-4-3-5-5-.6.1-1.3.2-2 .2" stroke="#1D6E7E" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="14" cy="17" r="2" fill="#1D6E7E" opacity=".45"/>
+      <circle cx="26" cy="17" r="2" fill="#1D6E7E" opacity=".45"/>
+      <path d="M17 21q3 2 6 0" stroke="#1D6E7E" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      <line x1="20" y1="8" x2="20" y2="6" stroke="#1D6E7E" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M19 6q1-2 2 0" stroke="#1D6E7E" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span class="logo-wm">glass<span>wing</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Our work</a></li>
+    <li><a href="#process">How it works</a></li>
+    <li><a href="mailto:glasswingdigital@gmail.com" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Web design studio · UK</div>
+    <h1>Websites that make small businesses <em>look extraordinary</em></h1>
+    <p class="hero-sub">Handcrafted, fast, and built around your brand. No templates. No compromise. Just a site that works as hard as you do.</p>
+    <div class="hero-actions">
+      <a href="mailto:glasswingdigital@gmail.com" class="btn-primary">Start a project</a>
+      <a href="#services" class="btn-ghost">See our services ↓</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span class="scroll-line"></span><span>Scroll</span></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><strong>Custom web design</strong><span class="tdot"></span></span>
+    <span class="ticker-item">Built by hand, not by template<span class="tdot"></span></span>
+    <span class="ticker-item"><strong>SEO &amp; maintenance</strong><span class="tdot"></span></span>
+    <span class="ticker-item">Fast turnaround · honest pricing<span class="tdot"></span></span>
+    <span class="ticker-item"><strong>Real results for real businesses</strong><span class="tdot"></span></span>
+    <span class="ticker-item">Working with small businesses worldwide<span class="tdot"></span></span>
+    <span class="ticker-item"><strong>Custom web design</strong><span class="tdot"></span></span>
+    <span class="ticker-item">Built by hand, not by template<span class="tdot"></span></span>
+    <span class="ticker-item"><strong>SEO &amp; maintenance</strong><span class="tdot"></span></span>
+    <span class="ticker-item">Fast turnaround · honest pricing<span class="tdot"></span></span>
+    <span class="ticker-item"><strong>Real results for real businesses</strong><span class="tdot"></span></span>
+    <span class="ticker-item">Working with small businesses worldwide<span class="tdot"></span></span>
+  </div>
+</div>
+
+<!-- ICON CARDS -->
+<section class="cards-section" id="services">
+  <div class="lbl">What we offer</div>
+  <h2 class="sec-title">Two services. Done <em>properly.</em></h2>
+  <p class="sec-sub" style="max-width:460px">No upsells, no bloat — just the things that actually make a difference to your business online.</p>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>Web design</h3>
+      <p>A handcrafted site built around your brand and your goals. No templates — just clean, fast code that's yours to keep.</p>
+      <ul class="card-list">
+        <li>Fully custom — no templates</li>
+        <li>Mobile-first and responsive</li>
+        <li>Fast on every device</li>
+        <li>Forms and integrations</li>
+        <li>Deployed and live-ready</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+      <h3>SEO &amp; maintenance</h3>
+      <p>Get found on Google and stay there. Ongoing care so your site is always fast, secure, and up to date.</p>
+      <ul class="card-list">
+        <li>On-page SEO optimisation</li>
+        <li>Google Search Console setup</li>
+        <li>Monthly reports</li>
+        <li>Content updates</li>
+        <li>Speed &amp; security monitoring</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <h3>Copywriting</h3>
+      <p>Words that sound like you — only sharper. We'll write the copy so you don't stare at a blank page.</p>
+      <ul class="card-list">
+        <li>Homepage &amp; service pages</li>
+        <li>SEO-friendly and natural</li>
+        <li>Written for your customer</li>
+        <li>Revisions until it's right</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 2 2 0 012 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <h3>Ongoing support</h3>
+      <p>Need a change, a new page, or a new feature? We're here for the long haul — no retainer needed.</p>
+      <ul class="card-list">
+        <li>Ad-hoc updates</li>
+        <li>New page design &amp; build</li>
+        <li>Direct email — no ticketing</li>
+        <li>Same-day response</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ALT 1: Web design — visual right -->
+<section class="alt linen" id="work">
+  <div class="alt-row">
+    <div class="alt-text">
+      <div class="lbl">Web design</div>
+      <h2>Your site should be the <em>best thing</em> a customer finds</h2>
+      <p>First impressions happen in milliseconds. A slow, tired, or generic site costs you customers before they've read a single word.</p>
+      <p>Every Glasswing site is built from scratch — designed around your business, your audience, and the action you want people to take.</p>
+      <a href="mailto:glasswingdigital@gmail.com" class="alt-link">Talk to us about your project →</a>
+    </div>
+    <div class="alt-visual">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots">
+            <div class="b-dot" style="background:#ff5f56"></div>
+            <div class="b-dot" style="background:#ffbd2e"></div>
+            <div class="b-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="b-url">glasswingdigital.com</div>
+        </div>
+        <div class="b-body">
+          <div class="m-hero">
+            <div class="m-nav"><div class="m-logo"></div><div class="m-navr"><div class="m-nl"></div><div class="m-nl"></div><div class="m-nb"></div></div></div>
+            <div class="m-h" style="width:92%"></div>
+            <div class="m-h" style="width:65%"></div>
+            <div class="m-s" style="width:88%;margin-top:12px"></div>
+            <div class="m-s" style="width:70%"></div>
+            <div class="m-ctarow"><div class="m-cta m-cp"></div><div class="m-cta m-cs"></div></div>
+          </div>
+          <div class="m-cards">
+            <div class="m-card"><div class="m-ci" style="background:var(--teal);opacity:.45"></div><div class="m-ct"></div><div class="m-cb"></div><div class="m-cb" style="width:80%"></div></div>
+            <div class="m-card"><div class="m-ci" style="background:var(--caramel);opacity:.45"></div><div class="m-ct"></div><div class="m-cb"></div><div class="m-cb" style="width:75%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALT 2: SEO — visual left -->
+<section class="alt dark">
+  <div class="alt-row rev">
+    <div class="alt-text inv">
+      <div class="lbl inv">SEO &amp; maintenance</div>
+      <h2 class="inv">Getting found is half the <em>battle</em></h2>
+      <p>A beautiful site is useless if no one can find it. We set your site up to rank — clean code, proper metadata, fast load times, and Google Search Console from day one.</p>
+      <p>Then we keep an eye on it every month so you never have to worry about it.</p>
+      <a href="mailto:glasswingdigital@gmail.com" class="alt-link inv">Ask us about SEO →</a>
+    </div>
+    <div class="alt-visual">
+      <div class="seo-vis">
+        <div class="seo-lbl">Organic search traffic</div>
+        <div class="seo-bars">
+          <div class="sb" style="height:25%"></div>
+          <div class="sb" style="height:32%"></div>
+          <div class="sb" style="height:28%"></div>
+          <div class="sb" style="height:40%"></div>
+          <div class="sb" style="height:36%"></div>
+          <div class="sb" style="height:52%"></div>
+          <div class="sb" style="height:48%"></div>
+          <div class="sb" style="height:62%"></div>
+          <div class="sb" style="height:58%"></div>
+          <div class="sb" style="height:74%"></div>
+          <div class="sb hi" style="height:86%"></div>
+          <div class="sb hi" style="height:100%"></div>
+        </div>
+        <div class="seo-time"><span>6 months ago</span><span>Today</span></div>
+        <div class="rank-list">
+          <div class="rank-row"><span class="rank-n">#1</span><div class="rank-bw"><div class="rank-b" style="width:100%"></div></div><span class="rank-l" style="color:var(--teal-pale)">web design</span></div>
+          <div class="rank-row"><span class="rank-n">#2</span><div class="rank-bw"><div class="rank-b" style="width:78%"></div></div><span class="rank-l">local site</span></div>
+          <div class="rank-row"><span class="rank-n">#3</span><div class="rank-bw"><div class="rank-b" style="width:60%"></div></div><span class="rank-l">designer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="lbl inv">How it works</div>
+  <h2 class="sec-title inv">From first hello to <em>live site</em></h2>
+  <p class="sec-sub inv" style="max-width:440px;margin-top:0">A four-step process with no surprises. Most projects are live within 2–4 weeks.</p>
+  <div class="proc-steps">
+    <div class="proc-step"><span class="step-n">01</span><h4>Discovery call</h4><p>We chat about your business, your goals, and what you need. No jargon, no pressure.</p></div>
+    <div class="proc-step"><span class="step-n">02</span><h4>Design &amp; build</h4><p>I design and build your site, keeping you in the loop so there are no surprises.</p></div>
+    <div class="proc-step"><span class="step-n">03</span><h4>Review &amp; refine</h4><p>You review the site and we tweak until every detail is exactly right.</p></div>
+    <div class="proc-step"><span class="step-n">04</span><h4>Go live</h4><p>We launch, connect your domain, and make sure everything runs perfectly.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-ring" style="width:600px;height:600px"></div>
+  <div class="cta-ring" style="width:340px;height:340px"></div>
+  <h2>Ready to get your <em>site sorted?</em></h2>
+  <p>Drop us an email and we'll get back to you within one business day.</p>
+  <a href="mailto:glasswingdigital@gmail.com" class="btn-cta">glasswingdigital@gmail.com</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="f-logo">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 8C14 8 8 12 8 18c0 4 3 7 7 8 0 0-2 4-2 6 2-1 4-3 5-5 .6.1 1.3.2 2 .2" stroke="#A8D8DF" stroke-width="1.5" stroke-linecap="round" opacity=".35"/><path d="M20 8c6 0 12 4 12 10 0 4-3 7-7 8 0 0 2 4 2 6-2-1-4-3-5-5-.6.1-1.3.2-2 .2" stroke="#A8D8DF" stroke-width="1.5" stroke-linecap="round" opacity=".35"/></svg>
+        <span class="f-wm">glasswing digital</span>
+      </a>
+      <p class="f-bio">Small studio, big results. Handcrafted websites for small businesses that want to stand out and get found online.</p>
+    </div>
+    <div class="f-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Web design</a></li>
+        <li><a href="#services">SEO &amp; maintenance</a></li>
+        <li><a href="#services">Copywriting</a></li>
+        <li><a href="#services">Ongoing support</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Studio</h5>
+      <ul>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#work">Our work</a></li>
+        <li><a href="mailto:glasswingdigital@gmail.com">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <span class="f-copy">&copy; 2026 Glasswing Digital. All rights reserved.</span>
+    <a href="mailto:glasswingdigital@gmail.com" class="f-email">glasswingdigital@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
