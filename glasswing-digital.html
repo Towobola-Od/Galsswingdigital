@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glasswing Digital — Web Design Studio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+  :root {
+    --cream: #faf7f2;
+    --indigo: #3d3b8e;
+    --indigo-light: #5b5cd6;
+    --mauve: #8a7eb8;
+    --gold: #d4a530;
+    --gold-light: #e6c260;
+    --blush: #c9b8d4;
+    --text: #1a1520;
+    --muted: #7a7285;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem 3.5rem;
+    background: rgba(250, 247, 242, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(61, 59, 142, 0.12);
+  }
+
+  .logo {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+    color: var(--indigo);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-transform: lowercase;
+  }
+
+  .logo-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  nav ul a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--indigo); }
+
+  .nav-cta {
+    background: var(--indigo) !important;
+    color: var(--cream) !important;
+    padding: 0.7rem 1.6rem;
+    border-radius: 100px;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    transition: background 0.3s, transform 0.2s !important;
+  }
+  .nav-cta:hover {
+    background: var(--indigo-light) !important;
+    transform: translateY(-2px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .blob-1 {
+    width: 700px; height: 700px;
+    background: var(--blush);
+    top: -200px; right: -100px;
+  }
+  .blob-2 {
+    width: 400px; height: 400px;
+    background: var(--indigo);
+    bottom: 0; left: 30%;
+    opacity: 0.15;
+  }
+  .blob-3 {
+    width: 300px; height: 300px;
+    background: var(--gold);
+    top: 20%; right: 20%;
+    opacity: 0.12;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 10;
+    padding: 6rem 3.5rem 4rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(61, 59, 142, 0.1);
+    border: 1px solid rgba(61, 59, 142, 0.2);
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--indigo);
+    letter-spacing: 0.05em;
+    animation: slideIn 0.7s ease both;
+  }
+
+  .pill-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    animation: slideIn 0.7s 0.1s ease both;
+  }
+
+  .hero-title em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--indigo-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 420px;
+    font-weight: 300;
+    animation: slideIn 0.7s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    animation: slideIn 0.7s 0.3s ease both;
+  }
+
+  .btn-bold {
+    background: var(--indigo);
+    color: var(--cream);
+    padding: 1rem 2.2rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 8px 30px rgba(61,59,142,0.25);
+  }
+  .btn-bold:hover {
+    background: var(--indigo-light);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(61,59,142,0.35);
+  }
+
+  .btn-outline {
+    color: var(--indigo);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s;
+  }
+  .btn-outline:hover { gap: 0.9rem; }
+
+  .social-row {
+    display: flex;
+    gap: 1rem;
+    animation: slideIn 0.7s 0.4s ease both;
+  }
+
+  .social-link {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(61,59,142,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--indigo);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .social-link:hover {
+    background: var(--indigo);
+    color: var(--cream);
+  }
+
+  /* ── HERO IMAGE ── */
+  .hero-right {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+    overflow: hidden;
+  }
+
+  .figure-wrap {
+    position: relative;
+    width: 90%;
+    max-width: 540px;
+  }
+
+  .figure-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 32px 80px rgba(61,59,142,0.18);
+    animation: floatUp 1s 0.3s ease both;
+  }
+
+  .figure-ring {
+    position: absolute;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blush), var(--mauve));
+    bottom: -40px; left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    opacity: 0.4;
+    filter: blur(40px);
+  }
+
+  /* placeholder for laptop image */
+  .hero-placeholder {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(61,59,142,0.08), rgba(201,184,212,0.2));
+    border: 2px dashed rgba(61,59,142,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    animation: floatUp 1s 0.3s ease both;
+  }
+  .hero-placeholder span {
+    font-size: 2.5rem;
+  }
+  .hero-placeholder p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    padding: 8rem 4rem;
+    background: var(--cream);
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow-line {
+    width: 40px; height: 2px;
+    background: var(--indigo-light);
+    border-radius: 2px;
+  }
+
+  .eyebrow-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--indigo-light);
+  }
+
+  .section-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 4rem;
+    font-weight: 300;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid rgba(61,59,142,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--indigo), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(61,59,142,0.12);
+  }
+
+  .service-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--indigo), var(--mauve));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-it-works {
+    padding: 8rem 4rem;
+    background: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how-it-works::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.05;
+    right: -100px; top: -100px;
+    filter: blur(80px);
+  }
+
+  .steps-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .steps-header h2 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .steps-header h2 em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--indigo-light);
+  }
+
+  .steps-header p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-card {
+    position: relative;
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    background: var(--cream);
+    border: 1px solid rgba(61,59,142,0.08);
+    transition: transform 0.3s;
+  }
+
+  .step-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .step-number {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: var(--gold);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .step-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+  }
+
+  .step-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .step-note {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    background: rgba(212, 165, 48, 0.1);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    font-size: 0.72rem;
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* connector lines between steps */
+  .step-card:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -1.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--mauve);
+    opacity: 0.5;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    padding: 6rem 4rem;
+    background: linear-gradient(135deg, var(--indigo) 0%, #1e1c52 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,165,48,0.1), transparent 60%),
+                radial-gradient(ellipse at 70% 20%, rgba(91,92,214,0.15), transparent 50%);
+  }
+
+  .t-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .t-header h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--cream);
+    margin-top: 1rem;
+  }
+
+  .t-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .t-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .t-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .t-stars {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .t-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .t-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .t-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--mauve), var(--gold-light));
+  }
+
+  .t-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--cream);
+  }
+  .t-role {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.1rem;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    padding: 8rem 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: var(--cream);
+  }
+
+  .cta-section h2 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    max-width: 600px;
+  }
+
+  .cta-section h2 em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--indigo-light);
+  }
+
+  .cta-section p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .cta-btns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cta-email {
+    font-size: 0.85rem;
+    color: var(--indigo);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(61,59,142,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
+  }
+  .cta-email:hover { border-color: var(--indigo); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    color: var(--cream);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-brand h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    text-transform: lowercase;
+  }
+
+  .footer-brand p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .footer-col a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    background: var(--text);
+    padding: 1.5rem 4rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--mauve); border-radius: 4px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    nav ul { gap: 1.2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 8rem 2rem 3rem; }
+    .hero-right { padding: 0 2rem 3rem; }
+    .services { padding: 4rem 2rem; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .how-it-works { padding: 4rem 2rem; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .step-card::after { display: none; }
+    .testimonials { padding: 4rem 2rem; }
+    .t-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr 1fr; padding: 3rem 2rem; }
+    .cta-section { padding: 4rem 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav ul a:not(.nav-cta) { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+    .footer-bottom { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-dot"></span>
+    glasswing
+  </a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="portfolio.html">Our Work</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="https://cal.com/glasswingdigital" target="_blank" class="nav-cta">Get in Touch →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-left">
+    <div class="pill-tag">
+      <span class="pill-dot"></span>
+      Web Design Studio · UK
+    </div>
+
+    <h1 class="hero-title">
+      Your Next<br>
+      Customer Is<br>
+      <em>Googling You</em><br>
+      Right Now
+    </h1>
+
+    <p class="hero-sub">Custom websites built around your brand and targets — so your online presence matches your ambition.</p>
+
+    <div class="hero-ctas">
+      <a href="https://cal.com/glasswingdigital" target="_blank" class="btn-bold">Book a Call</a>
+      <a href="#services" class="btn-outline">What we offer →</a>
+    </div>
+
+    <div class="social-row">
+      <a href="#" class="social-link">IG</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="figure-wrap">
+      <div class="figure-ring"></div>
+      <!-- Replace src with your laptop mockup image -->
+      <div class="hero-placeholder">
+        <span>💻</span>
+        <p>YOUR HERO IMAGE HERE</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-eyebrow">
+    <div class="eyebrow-line"></div>
+    <span class="eyebrow-text">What We Offer</span>
+  </div>
+  <h2 class="section-title">Stop Losing Customers<br>to a Bad Website</h2>
+  <p class="section-sub">A complete digital presence — designed, written, and maintained so you don't have to think about it.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✦</div>
+      <h3>Web Design</h3>
+      <p>Custom-built websites that look sharp, load fast, and are designed around your brand, your audience, and your goals.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Maintenance</h3>
+      <p>Regular updates, security patches, and performance checks so your site stays healthy and you stay stress-free.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✍️</div>
+      <h3>Copywriting</h3>
+      <p>Clear, compelling words that sound like you — written to connect with your audience and move them to action.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <h3>Ongoing Support</h3>
+      <p>On retainer. A reliable partner you can call on whenever you need changes, advice, or a fresh pair of eyes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="steps-header">
+    <div class="section-eyebrow" style="justify-content: center;">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">How It Works</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>From First Hello<br>to <em>Live Site</em></h2>
+    <p>A four-step process with no surprises. Most projects are live within 2–4 weeks.</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">01</div>
+      <h3>Discovery Call</h3>
+      <p>We chat about your business, your goals, and what you need. No jargon, just organic building.</p>
+      <div class="step-note">If you decide to move forward, you secure your spot with a deposit fee.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">02</div>
+      <h3>Design & Build</h3>
+      <p>I design and build your site, keeping you in the loop so there are no surprises.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">03</div>
+      <h3>Review & Refine</h3>
+      <p>You review the site and we tweak until every detail is exactly right.</p>
+      <div class="step-note">You pay the full amount according to your package.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">04</div>
+      <h3>Go Live</h3>
+      <p>We launch, connect your domain, and make sure everything runs perfectly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="t-header">
+    <p class="t-eyebrow">Client Love</p>
+    <h2>Don't Just Take Our Word For It</h2>
+  </div>
+  <div class="t-grid">
+    <div class="t-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">Glasswing took our rough ideas and turned them into a site that actually feels like us. The whole process was seamless.</p>
+      <div class="t-author">
+        <div class="t-avatar"></div>
+        <div>
+          <p class="t-name">Placeholder Name</p>
+          <p class="t-role">Small Business Owner</p>
+        </div>
+      </div>
+    </div>
+    <div class="t-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">Finally — someone who actually listens and doesn't overcomplicate things. Our site was live in under three weeks.</p>
+      <div class="t-author">
+        <div class="t-avatar" style="background: linear-gradient(135deg, var(--indigo), var(--mauve));"></div>
+        <div>
+          <p class="t-name">Placeholder Name</p>
+          <p class="t-role">Founder, Local Studio</p>
+        </div>
+      </div>
+    </div>
+    <div class="t-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">The ongoing support is what makes the difference. I never have to worry about my site — they've got it handled.</p>
+      <div class="t-author">
+        <div class="t-avatar" style="background: linear-gradient(135deg, var(--gold-light), var(--indigo-light));"></div>
+        <div>
+          <p class="t-name">Placeholder Name</p>
+          <p class="t-role">Creative Director</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-eyebrow">
+    <div class="eyebrow-line"></div>
+    <span class="eyebrow-text">Get Started</span>
+    <div class="eyebrow-line"></div>
+  </div>
+  <h2>Ready to Anchor<br>Your Business<br><em>Presence</em>?</h2>
+  <p>Drop us an email and we'll get back within one business day. We take on a small number of clients each quarter to make sure every project gets our full attention. Spots go fast.</p>
+  <div class="cta-btns">
+    <a href="https://cal.com/glasswingdigital" target="_blank" class="btn-bold">Book a Discovery Call</a>
+    <a href="mailto:hello@glasswingdigital.co.uk" class="cta-email">hello@glasswingdigital.co.uk</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <h3>glasswing</h3>
+    <p>Web design and digital presence for small businesses across the UK. No fluff, just results.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="#services">Web Design</a></li>
+      <li><a href="#services">Maintenance</a></li>
+      <li><a href="#services">Copywriting</a></li>
+      <li><a href="#services">Ongoing Support</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <ul>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="mailto:hello@glasswingdigital.co.uk">hello@glasswingdigital.co.uk</a></li>
+      <li><a href="https://cal.com/glasswingdigital" target="_blank">Book a Call</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Glasswing Digital. All rights reserved.</p>
+  <p>Privacy · Terms</p>
+</div>
+
+</body>
+</html>
