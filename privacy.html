@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy Policy — Glasswing Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0e0717;
+    --midnight: #1a0b2e;
+    --aubergine: #2d1b3d;
+    --violet-deep: #4c1d95;
+    --cognac: #c8843d;
+    --cognac-light: #e8a766;
+    --cognac-dark: #7a4a1f;
+    --cream: #faf6ee;
+    --almond: #ede2cf;
+    --bone: #f5f0e6;
+    --line-warm: rgba(122,74,31,0.25);
+    --text-body: #2a1f3d;
+    --text-muted: #4a3a5e;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  
+  html,body{
+    background:var(--midnight);
+    color:var(--text-body);
+    font-family:'Inter Tight',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+    line-height:1.6;
+    font-weight:500;
+    overflow-x:hidden;
+  }
+  
+  a{color:var(--cognac-dark);text-decoration:none;border-bottom:1.5px solid currentColor;transition:opacity 0.2s;font-weight:600}
+  a:hover{opacity:0.7}
+  ::selection{background:var(--cognac);color:var(--cream)}
+
+  .cosmic-bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+  .cosmic-bg img{
+    width:110%;height:110%;
+    object-fit:cover;
+    filter:blur(28px) saturate(1.1);
+    transform:translate(-5%,-5%) scale(1.1);
+    opacity:0.8;
+  }
+  .cosmic-bg::after{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(26,11,46,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(200,132,61,0.1) 0%, transparent 50%);
+  }
+
+  .content-container{
+    position:relative;
+    z-index:10;
+    min-height:100vh;
+    padding:60px 32px;
+  }
+
+  .content-box{
+    background:var(--cream);
+    border-radius:6px;
+    box-shadow:0 60px 120px rgba(0,0,0,0.5), 0 30px 60px rgba(0,0,0,0.3);
+    max-width:880px;
+    margin:0 auto;
+    padding:60px 72px 80px;
+    position:relative;
+  }
+
+  .content-box::before{
+    content:"";
+    position:absolute;inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    border-radius:6px;
+  }
+
+  .content-box::after{
+    content:"PRIVACY, № 2501";
+    position:absolute;
+    top:32px;
+    right:48px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--cognac-dark);
+    opacity:0.7;
+    z-index:5;
+    font-weight:700;
+  }
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:64px;
+    padding-bottom:28px;
+    border-bottom:1.5px solid var(--line-warm);
+    position:relative;
+    z-index:2;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-size:26px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    color:var(--midnight);
+    text-decoration:none;
+    border:none;
+  }
+  .brand-mark{
+    width:26px;height:26px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--cognac), var(--cognac-light));
+    box-shadow:0 0 24px rgba(200,132,61,0.5), inset 0 1px 1px rgba(255,255,255,0.3);
+    position:relative;
+  }
+  .brand-mark::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background:var(--midnight);
+  }
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--text-muted);
+    border:none;
+  }
+  .nav-links a:hover{color:var(--midnight);opacity:1}
+  .nav-cta{
+    background:var(--midnight) !important;
+    color:var(--cream) !important;
+    padding:10px 20px;
+    border-radius:100px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    border:none !important;
+  }
+  .nav-cta:hover{
+    background:var(--cognac) !important;
+    color:var(--midnight) !important;
+  }
+
+  .doc-meta{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--cognac-dark);
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:700;
+  }
+  .doc-meta::before{
+    content:"";
+    width:24px;height:1.5px;
+    background:var(--cognac);
+  }
+
+  h1{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:clamp(48px, 6vw, 80px);
+    letter-spacing:-0.035em;
+    line-height:0.96;
+    margin-bottom:16px;
+    color:var(--midnight);
+  }
+  h1 em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--cognac-dark);
+  }
+
+  .last-updated{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin-bottom:56px;
+    padding-bottom:32px;
+    border-bottom:1.5px solid var(--line-warm);
+    font-weight:600;
+  }
+
+  .doc-intro{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:500;
+    font-size:23px;
+    line-height:1.5;
+    letter-spacing:-0.01em;
+    color:var(--midnight);
+    margin-bottom:48px;
+  }
+
+  h2{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:28px;
+    line-height:1.15;
+    letter-spacing:-0.025em;
+    color:var(--midnight);
+    margin-top:56px;
+    margin-bottom:20px;
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+  }
+  h2::before{
+    content:counter(section,decimal-leading-zero);
+    counter-increment:section;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.15em;
+    color:var(--cognac-dark);
+    font-weight:700;
+  }
+  
+  body{counter-reset:section}
+
+  p{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text-body);
+    margin-bottom:18px;
+    font-weight:500;
+  }
+
+  ul{
+    margin:0 0 24px 0;
+    list-style:none;
+  }
+  li{
+    position:relative;
+    padding-left:24px;
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text-body);
+    margin-bottom:10px;
+    font-weight:500;
+  }
+  li::before{
+    content:"✦";
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:12px;
+    color:var(--cognac);
+    position:absolute;
+    left:0;
+    top:7px;
+    font-weight:600;
+  }
+
+  strong{font-weight:700;color:var(--midnight)}
+
+  footer{
+    margin-top:80px;
+    padding-top:32px;
+    border-top:1.5px solid var(--line-warm);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    font-weight:600;
+  }
+  footer a{
+    color:var(--cognac-dark);
+    border:none;
+    font-weight:700;
+  }
+  footer a:hover{color:var(--midnight)}
+
+  @media (max-width:768px){
+    .content-container{padding:20px 12px}
+    .content-box{padding:40px 28px}
+    .content-box::after{display:none}
+    nav{flex-direction:column;gap:20px;text-align:center}
+    .nav-links{flex-direction:column;gap:12px}
+    h2{flex-direction:column;gap:6px;align-items:flex-start}
+    footer{flex-direction:column;gap:10px;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="cosmic-bg">
+  <img src="assets/hero.jpg" alt="">
+</div>
+
+<div class="content-container">
+  <div class="content-box">
+    <nav>
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        glasswing
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="https://cal.com/glasswingdigital" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
+      </div>
+    </nav>
+
+    <div class="doc-meta">Legal, Privacy</div>
+    <h1>Privacy <em>Policy.</em></h1>
+    <p class="last-updated">Last updated, 19 May 2026</p>
+
+    <p class="doc-intro">
+      Glasswing Digital is committed to protecting your privacy. This Privacy Policy explains, in plain language, how we collect, use, and safeguard your personal information when you engage our services.
+    </p>
+
+    <h2>Information We Collect</h2>
+    <p>We collect information you provide directly to us when you:</p>
+    <ul>
+      <li>Book a discovery call through our Cal.com scheduling system</li>
+      <li>Email us at hello@glasswingdigital.co.uk</li>
+      <li>Engage our services for website design or ongoing care plans</li>
+    </ul>
+    <p>This information may include your name, email address, business name, phone number, and details about your project requirements.</p>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Provide, maintain, and improve our web design services</li>
+      <li>Communicate with you about projects, invoices, and service updates</li>
+      <li>Schedule and manage discovery calls and client meetings</li>
+      <li>Send project deliverables, invoices, and payment confirmations</li>
+      <li>Respond to your questions and provide customer support</li>
+    </ul>
+
+    <h2>Information Sharing</h2>
+    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information with:</p>
+    <ul>
+      <li><strong>Service providers:</strong> Cal.com (scheduling), Stripe (payment processing), Namecheap (domain and hosting), and ImprovMX (email forwarding) to deliver our services</li>
+      <li><strong>Legal requirements:</strong> If required by law or to protect our rights</li>
+    </ul>
+
+    <h2>Data Storage and Security</h2>
+    <p>Your information is stored securely using industry-standard practices. We retain your data for as long as necessary to provide services and comply with legal obligations. Client project files and communications are kept for the duration of our working relationship and may be retained for reference purposes thereafter.</p>
+
+    <h2>Cookies and Tracking</h2>
+    <p>Our website does not currently use cookies or tracking technologies. We do not use Google Analytics or similar tracking tools. If this changes in the future, we will update this policy and notify you accordingly.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>Our website and services integrate with third-party platforms, each governed by their own privacy policies:</p>
+    <ul>
+      <li><strong>Cal.com:</strong> For appointment scheduling</li>
+      <li><strong>Stripe:</strong> For payment processing</li>
+      <li><strong>GitHub Pages:</strong> For website hosting</li>
+    </ul>
+    <p>We encourage you to review their policies.</p>
+
+    <h2>Your Rights</h2>
+    <p>Under UK data protection law (UK GDPR), you have the right to:</p>
+    <ul>
+      <li>Access the personal information we hold about you</li>
+      <li>Request correction of inaccurate information</li>
+      <li>Request deletion of your information</li>
+      <li>Object to processing of your information</li>
+      <li>Request transfer of your information to another service</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at <a href="mailto:hello@glasswingdigital.co.uk">hello@glasswingdigital.co.uk</a>.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Our services are not directed to individuals under 18. We do not knowingly collect personal information from children.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. Continued use of our services after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this Privacy Policy or how we handle your information, please reach out:</p>
+    <p>
+      <strong>Glasswing Digital</strong><br/>
+      Email, <a href="mailto:hello@glasswingdigital.co.uk">hello@glasswingdigital.co.uk</a><br/>
+      Web, <a href="https://glasswingdigital.co.uk">glasswingdigital.co.uk</a>
+    </p>
+
+    <footer>
+      <span>© 2026 Glasswing Digital</span>
+      <span><a href="terms.html">Terms</a> / <a href="privacy.html">Privacy</a></span>
+      <span>London, UK</span>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
