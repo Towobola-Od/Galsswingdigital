@@ -3,452 +3,1429 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Glasswing Digital — Websites for professionals who deserve better</title>
-<meta name="description" content="Glasswing Digital builds editorial, hand-finished websites for solo professionals, consultancies and law firms. From £300." />
+<title>Glasswing Digital — Editorial websites for professional services</title>
+<meta name="description" content="Glasswing Digital builds editorial, hand-finished websites for solo professionals, consultancies and law firms. From £400." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600;1,9..144,700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* Violet + complementary (yellow-amber accent) + white */
-    --violet-900:#1a0b2e;
-    --violet-800:#2b1248;
-    --violet-700:#3d1a66;
-    --violet-600:#5b21b6;
-    --violet-500:#7c3aed;
-    --violet-400:#a78bfa;
-    --violet-200:#ddd6fe;
-    --violet-50:#f5f3ff;
-    --amber:#f4c95d;       /* complementary to violet */
-    --coral:#ff6b6b;       /* secondary accent (split-complement) */
-    --white:#ffffff;
-    --ink:#0e0717;
-    --line:rgba(255,255,255,0.12);
-    --line-dark:rgba(14,7,23,0.12);
+    --ink: #0e0717;
+    --midnight: #1a0b2e;
+    --aubergine: #2d1b3d;
+    --violet-deep: #4c1d95;
+    --violet: #6d28d9;
+    --violet-light: #a78bfa;
+    --violet-pale: #ede9fe;
+    --cognac: #c8843d;
+    --cognac-light: #e8a766;
+    --cognac-dark: #7a4a1f;
+    --rust: #9c4221;
+    --cream: #faf6ee;
+    --almond: #ede2cf;
+    --sand: #d4c5a3;
+    --paper: #ffffff;
+    --bone: #f5f0e6;
+    --sage: #5a7058;
+    --sage-pale: #e8ede5;
+    --line: rgba(255,255,255,0.12);
+    --line-dark: rgba(14,7,23,0.14);
+    --line-warm: rgba(122,74,31,0.25);
+    --text-body: #2a1f3d;
+    --text-muted: #4a3a5e;
   }
+
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:var(--white);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.55}
+  
+  html,body{
+    background:var(--cream);
+    color:var(--text-body);
+    font-family:'Inter Tight',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+    line-height:1.6;
+    font-weight:500;
+    font-feature-settings: "ss01", "ss02", "cv11";
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
+  ::selection{background:var(--cognac);color:var(--cream)}
+
   .container{max-width:1320px;margin:0 auto;padding:0 32px}
-  .mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase}
-  .serif{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-0.02em}
-  .italic{font-style:italic}
-/* ---------- HERO ANIMATION ---------- */
-  .hero-parallax{position:absolute;inset:0;will-change:transform}
-  .hero-image-anim{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;will-change:filter;animation:cinematicFloat 18s ease-in-out infinite,pulseGlow 8s ease-in-out infinite;transform-origin:center;filter:contrast(1.05) saturate(1.15) brightness(0.95)}
-  .light-sweep{position:absolute;inset:-20%;background:linear-gradient(115deg,transparent 35%,rgba(255,210,170,0.03) 45%,rgba(255,230,180,0.18) 50%,rgba(255,180,120,0.08) 54%,transparent 65%);mix-blend-mode:screen;filter:blur(24px);animation:sweep 9s ease-in-out infinite;pointer-events:none}
-  .ambient-glow{position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,140,90,0.14),transparent 35%),radial-gradient(circle at 80% 70%,rgba(255,180,120,0.1),transparent 35%),radial-gradient(circle at center,transparent 35%,rgba(5,4,10,0.65));animation:hazeMove 12s ease-in-out infinite alternate;mix-blend-mode:screen;pointer-events:none}
-  .grain{position:absolute;inset:0;opacity:0.045;background-image:radial-gradient(circle,rgba(255,255,255,0.25) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:soft-light;animation:grainShift 0.3s steps(2) infinite;pointer-events:none}
-  @keyframes cinematicFloat{0%{transform:scale(1.05) translate3d(0px,0px,0px) rotate(0deg)}25%{transform:scale(1.08) translate3d(-18px,-12px,0px) rotate(-0.7deg)}50%{transform:scale(1.1) translate3d(12px,10px,0px) rotate(0.8deg)}75%{transform:scale(1.07) translate3d(-10px,14px,0px) rotate(-0.5deg)}100%{transform:scale(1.05) translate3d(0px,0px,0px) rotate(0deg)}}
-  @keyframes pulseGlow{0%,100%{filter:contrast(1.05) saturate(1.1) brightness(0.92)}50%{filter:contrast(1.12) saturate(1.25) brightness(1)}}
-  @keyframes sweep{0%{transform:translateX(-35%) translateY(-5%) rotate(6deg);opacity:0}15%{opacity:1}50%{opacity:0.8}100%{transform:translateX(35%) translateY(5%) rotate(6deg);opacity:0}}
-  @keyframes hazeMove{from{transform:scale(1) translateX(-1%)}to{transform:scale(1.08) translateX(1%)}}
-  @keyframes grainShift{0%{transform:translate(0,0)}25%{transform:translate(1px,-1px)}50%{transform:translate(-1px,1px)}75%{transform:translate(1px,1px)}100%{transform:translate(0,0)}}
+
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
   /* ---------- NAV ---------- */
-  .nav{position:absolute;top:0;left:0;right:0;z-index:20;padding:24px 0}
+  .nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:50;
+    padding:20px 0;
+    background:rgba(26,11,46,0.92);
+    backdrop-filter:blur(20px) saturate(1.3);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;color:#fff}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:20px;letter-spacing:-0.01em}
-  .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 18px var(--amber)}
-  .nav-links{display:flex;gap:28px}
-  .nav-links a{font-size:13px;opacity:.85;transition:opacity .2s}
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-size:24px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+  }
+  .brand-mark{
+    width:28px;height:28px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--cognac), var(--cognac-light));
+    box-shadow:0 0 24px rgba(200,132,61,0.5), inset 0 1px 1px rgba(255,255,255,0.3);
+    position:relative;
+  }
+  .brand-mark::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background:var(--midnight);
+  }
+  .nav-links{display:flex;gap:32px;align-items:center}
+  .nav-links a{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    opacity:.9;
+    transition:opacity .2s;
+  }
   .nav-links a:hover{opacity:1}
-  .nav-cta{border:1px solid rgba(255,255,255,.35);padding:10px 18px;border-radius:999px;font-size:13px;transition:all .2s}
-  .nav-cta:hover{background:#fff;color:var(--violet-900)}
+  .nav-cta{
+    border:1.5px solid rgba(255,255,255,.35);
+    padding:10px 20px;
+    border-radius:100px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    transition:all .3s;
+    background:transparent;
+  }
+  .nav-cta:hover{
+    background:var(--cognac);
+    border-color:var(--cognac);
+    color:var(--midnight);
+  }
 
   /* ---------- HERO ---------- */
-  .hero{position:relative;min-height:100vh;background:var(--violet-900);color:#fff;overflow:hidden}
-  .hero-bg{position:absolute;inset:0}
-  .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.95}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:
-    radial-gradient(ellipse at 20% 80%, rgba(26,11,46,.85) 0%, transparent 55%),
-    linear-gradient(180deg, rgba(26,11,46,.45) 0%, rgba(26,11,46,.2) 50%, rgba(26,11,46,.85) 100%)
+  .hero{
+    position:relative;
+    min-height:100vh;
+    background:var(--midnight);
+    color:#fff;
+    overflow:hidden;
   }
-  .hero-inner{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding-top:120px;padding-bottom:48px}
-  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+  .hero-bg{position:absolute;inset:0}
+  .hero-bg img{
+    width:100%;height:100%;
+    object-fit:cover;
+    opacity:.95;
+  }
+  .hero-bg::after{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 15% 80%, rgba(26,11,46,.92) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 20%, rgba(200,132,61,.15) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(26,11,46,.4) 0%, rgba(26,11,46,.1) 50%, rgba(26,11,46,.9) 100%);
+  }
 
-  /* technical readout - left side */
-  .readout{display:flex;flex-direction:column;gap:32px}
-  .readout-bar{display:flex;align-items:center;gap:14px;color:var(--amber)}
-  .readout-bar .line{flex:1;height:1px;background:linear-gradient(90deg,var(--amber),transparent)}
-  .readout-block{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.9;color:rgba(255,255,255,.55);letter-spacing:.08em}
-  .readout-block strong{color:var(--amber);font-weight:500}
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding-top:140px;
+    padding-bottom:60px;
+  }
 
-  /* headline - right side */
-  .headline{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(48px,7vw,108px);line-height:.95;letter-spacing:-0.035em}
-  .headline em{font-style:italic;font-weight:400;color:var(--amber)}
-  .headline-sub{margin-top:28px;max-width:480px;font-size:16px;line-height:1.6;color:rgba(255,255,255,.75)}
-  .hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-size:14px;font-weight:500;transition:all .25s;cursor:pointer;border:none}
-  .btn-primary{background:var(--amber);color:var(--violet-900)}
-  .btn-primary:hover{background:#fff;transform:translateY(-1px)}
-  .btn-ghost{border:1px solid rgba(255,255,255,.3);color:#fff;background:transparent}
-  .btn-ghost:hover{background:rgba(255,255,255,.08)}
-  .btn .arrow{transition:transform .25s}
-  .btn:hover .arrow{transform:translateX(3px)}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:80px;
+    align-items:end;
+  }
 
-  .hero-meta{display:flex;justify-content:space-between;align-items:flex-end;color:rgba(255,255,255,.45);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
-  .hero-meta .target{color:var(--amber)}
+  .readout{
+    border-left:1.5px solid rgba(255,255,255,0.2);
+    padding-left:24px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    line-height:2;
+    color:rgba(255,255,255,0.75);
+    font-weight:500;
+  }
+  .readout-bar{
+    display:flex;align-items:center;gap:12px;
+    margin-bottom:32px;
+    font-size:10px;
+    letter-spacing:0.2em;
+    font-weight:600;
+  }
+  .readout-bar .line{
+    flex:1;height:1.5px;background:rgba(255,255,255,0.2);
+  }
+  .readout-bar span:not(.line){color:rgba(255,255,255,0.85)}
+  .readout-block strong{
+    color:var(--cognac-light);
+    font-weight:700;
+    letter-spacing:0.16em;
+  }
+
+  .issue-mark{
+    position:absolute;
+    top:120px;
+    right:40px;
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-style:italic;
+    font-weight:600;
+    font-size:14px;
+    color:rgba(255,255,255,0.55);
+    letter-spacing:0.02em;
+    transform:rotate(90deg);
+    transform-origin:right top;
+  }
+
+  .headline{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:clamp(56px, 8.5vw, 130px);
+    line-height:0.94;
+    letter-spacing:-0.04em;
+    margin-bottom:36px;
+    color:#fff;
+  }
+  .headline em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--cognac-light);
+    letter-spacing:-0.025em;
+  }
+
+  .headline-sub{
+    font-size:18px;
+    line-height:1.65;
+    max-width:560px;
+    color:rgba(255,255,255,0.88);
+    margin-bottom:48px;
+    font-weight:500;
+  }
+
+  .hero-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 28px;
+    border-radius:100px;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    transition:all .35s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--cognac);
+    color:var(--midnight);
+    border:1.5px solid var(--cognac);
+  }
+  .btn-primary:hover{
+    background:var(--cognac-light);
+    border-color:var(--cognac-light);
+    transform:translateY(-1px);
+    box-shadow:0 20px 40px -10px rgba(200,132,61,0.5);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:#fff;
+    border:1.5px solid rgba(255,255,255,0.35);
+  }
+  .btn-ghost:hover{
+    background:rgba(255,255,255,0.08);
+    border-color:rgba(255,255,255,0.55);
+  }
+  .arrow{
+    transition:transform .3s;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:600;
+  }
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  .hero-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:80px;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,0.15);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:rgba(255,255,255,0.6);
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .hero-meta .target{
+    display:flex;align-items:center;gap:8px;
+    color:var(--cognac-light);
+    font-weight:700;
+  }
+  .hero-meta .target::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--cognac);
+    animation:targetPulse 2s ease-in-out infinite;
+  }
+  @keyframes targetPulse{
+    0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(200,132,61,0.5)}
+    50%{opacity:0.7;transform:scale(0.85);box-shadow:0 0 0 8px rgba(200,132,61,0)}
+  }
 
   /* ---------- MARQUEE ---------- */
-  .marquee{background:var(--ink);color:#fff;padding:22px 0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .marquee-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 38s linear infinite;font-family:'Fraunces',serif;font-style:italic;font-size:26px;font-weight:300;letter-spacing:-0.01em}
-  .marquee-track span{display:inline-flex;align-items:center;gap:48px;color:rgba(255,255,255,.85)}
-  .marquee-track span::after{content:"✦";color:var(--amber);font-style:normal;font-size:14px}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee{
+    background:var(--ink);
+    color:var(--cream);
+    padding:20px 0;
+    overflow:hidden;
+    border-top:1px solid rgba(255,255,255,0.08);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .marquee-track{
+    display:flex;
+    gap:60px;
+    animation:scroll 40s linear infinite;
+    white-space:nowrap;
+  }
+  .marquee-track span{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:24px;
+    letter-spacing:-0.01em;
+    display:inline-flex;
+    align-items:center;
+    gap:60px;
+    color:var(--cream);
+  }
+  .marquee-track span::after{
+    content:"✦";
+    color:var(--cognac);
+    font-style:normal;
+    font-size:14px;
+  }
+  @keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
 
   /* ---------- SECTIONS ---------- */
-  section{padding:120px 0}
-  .section-label{display:flex;align-items:center;gap:14px;margin-bottom:36px;color:var(--violet-600)}
-  .section-label .dot{width:6px;height:6px;border-radius:50%;background:var(--violet-500)}
-  .section-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(40px,5.5vw,76px);line-height:1.02;letter-spacing:-0.03em;max-width:900px;margin-bottom:24px;color:var(--ink)}
-  .section-title em{font-style:italic;color:var(--violet-600)}
-  .section-lead{font-size:18px;max-width:620px;color:#4a3960;margin-bottom:64px}
+  section{padding:140px 0;position:relative;z-index:2}
 
-  /* ---------- ABOUT STRIP ---------- */
-  .about{background:var(--violet-50)}
-  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start}
-  .about p{font-family:'Fraunces',serif;font-weight:300;font-size:28px;line-height:1.35;letter-spacing:-0.01em;color:var(--violet-900)}
-  .about p em{font-style:italic;color:var(--violet-600)}
-  .about-stats{display:flex;flex-direction:column;gap:28px;border-left:1px solid var(--violet-200);padding-left:40px}
-  .stat .num{font-family:'Fraunces',serif;font-size:48px;color:var(--violet-700);letter-spacing:-0.03em}
-  .stat .lbl{font-size:13px;color:#6b5586;margin-top:4px}
+  .section-label{
+    display:flex;align-items:center;gap:12px;
+    color:var(--cognac-dark);
+    margin-bottom:32px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  .section-label .dot{
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--cognac);
+  }
+  
+  .section-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:clamp(40px,5.5vw,76px);
+    line-height:1;
+    letter-spacing:-0.03em;
+    color:var(--midnight);
+    margin-bottom:20px;
+  }
+  .section-title em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--cognac-dark);
+  }
+  .section-lead{
+    font-size:18px;
+    line-height:1.65;
+    color:var(--text-muted);
+    max-width:540px;
+    margin-bottom:80px;
+    font-weight:500;
+  }
 
-  /* ---------- SERVICES BENTO ---------- */
-  .services{background:#fff}
-  .bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(180px,auto);gap:18px}
-  .box{position:relative;border-radius:24px;padding:32px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s ease,box-shadow .35s ease;border:1px solid transparent}
-  .box:hover{transform:translateY(-4px)}
-  .box h3{font-family:'Fraunces',serif;font-weight:400;font-size:32px;line-height:1.05;letter-spacing:-0.02em}
-  .box h3 em{font-style:italic}
-  .box .price{font-family:'Fraunces',serif;font-size:42px;letter-spacing:-0.02em}
-  .box .price small{font-size:14px;font-family:'Inter',sans-serif;opacity:.6;margin-left:6px}
-  .box p{font-size:14px;line-height:1.55;opacity:.85}
-  .box ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;margin-top:14px}
-  .box ul li{display:flex;align-items:flex-start;gap:8px}
-  .box ul li::before{content:"›";font-family:'Fraunces',serif;opacity:.6}
-  .box .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;border-radius:999px;border:1px solid currentColor;opacity:.7;align-self:flex-start}
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--cream);position:relative}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:100px;
+    align-items:start;
+  }
+  .about-prose{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:500;
+    font-size:clamp(24px,2.5vw,34px);
+    line-height:1.35;
+    letter-spacing:-0.018em;
+    color:var(--midnight);
+  }
+  .about-prose em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--cognac-dark);
+  }
+  
+  .about-stats{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border-top:1.5px solid var(--line-warm);
+  }
+  .stat{
+    padding:32px 0;
+    border-bottom:1.5px solid var(--line-warm);
+    display:flex;
+    align-items:baseline;
+    gap:32px;
+  }
+  .stat .num{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-style:italic;
+    font-weight:600;
+    font-size:56px;
+    color:var(--violet-deep);
+    letter-spacing:-0.03em;
+    min-width:120px;
+  }
+  .stat .lbl{
+    font-size:14px;
+    color:var(--text-muted);
+    letter-spacing:0.01em;
+    line-height:1.5;
+    font-weight:600;
+  }
 
-  /* Bento layout */
-  .b1{grid-column:span 3;grid-row:span 2;background:linear-gradient(135deg,var(--violet-700),var(--violet-900));color:#fff}
-  .b1 .price{color:var(--amber)}
-  .b2{grid-column:span 3;grid-row:span 2;background:var(--violet-50);color:var(--violet-900);border-color:var(--violet-200)}
-  .b2 .price{color:var(--violet-600)}
-  .b3{grid-column:span 2;background:var(--amber);color:var(--violet-900)}
-  .b4{grid-column:span 2;background:var(--ink);color:#fff}
-  .b4 h3{color:var(--amber)}
-  .b5{grid-column:span 2;background:#fff;border-color:var(--violet-200);color:var(--violet-900)}
+  /* ---------- SERVICES ---------- */
+  .services{
+    background:var(--bone);
+    position:relative;
+  }
+  
+  .services-header{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:end;
+    margin-bottom:100px;
+  }
 
-  .b1::after,.b2::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.25),transparent 70%);pointer-events:none}
+  .editorial-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:32px;
+    margin-bottom:32px;
+  }
+  
+  .editorial-grid-bottom{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:32px;
+  }
+
+  .editorial-card{
+    position:relative;
+    padding:48px;
+    border-radius:6px;
+    overflow:hidden;
+    transition:all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card-number{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-style:italic;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.05em;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .card-number::after{
+    content:"";
+    flex:1;
+    height:1.5px;
+    background:currentColor;
+    opacity:0.25;
+    max-width:80px;
+  }
+
+  .card-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    padding:7px 14px;
+    border-radius:100px;
+    border:1.5px solid currentColor;
+    opacity:0.95;
+    margin-bottom:24px;
+    font-weight:700;
+  }
+
+  .card-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:clamp(38px, 4vw, 56px);
+    line-height:0.98;
+    letter-spacing:-0.03em;
+    margin-bottom:20px;
+  }
+  .card-title em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+  }
+
+  .card-desc{
+    font-size:16px;
+    line-height:1.6;
+    opacity:0.95;
+    max-width:340px;
+    margin-bottom:32px;
+    font-weight:500;
+  }
+
+  .card-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:36px;
+    font-size:15px;
+    line-height:1.5;
+    font-weight:500;
+  }
+  .card-list li{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    opacity:1;
+  }
+  .card-list li::before{
+    content:"";
+    width:5px;height:5px;
+    border-radius:50%;
+    background:currentColor;
+    flex-shrink:0;
+    margin-top:8px;
+    opacity:0.7;
+  }
+
+  .card-price-row{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    padding-top:32px;
+    border-top:1.5px solid currentColor;
+    border-color:rgba(255,255,255,0.18);
+  }
+  
+  .card-price{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:64px;
+    letter-spacing:-0.035em;
+    line-height:1;
+  }
+  .card-price small{
+    display:block;
+    font-family:'Inter Tight',sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    opacity:0.75;
+    margin-top:8px;
+    text-transform:uppercase;
+  }
+
+  .card-link{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:18px;
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:gap 0.3s;
+  }
+  .card-link:hover{gap:14px}
+
+  .card-portfolio{
+    background:linear-gradient(135deg, var(--aubergine) 0%, var(--midnight) 100%);
+    color:var(--cream);
+    border:1px solid rgba(255,255,255,0.05);
+    min-height:540px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .card-portfolio::before{
+    content:"";
+    position:absolute;
+    top:-100px;right:-100px;
+    width:400px;height:400px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(200,132,61,0.18) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .card-portfolio::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--cognac), transparent);
+    opacity:0.35;
+  }
+  .card-portfolio .card-number{color:var(--cognac-light)}
+  .card-portfolio .card-tag{color:var(--cognac-light);border-color:rgba(232,167,102,0.4)}
+  .card-portfolio .card-price{color:var(--cognac-light)}
+
+  .card-practice{
+    background:var(--cream);
+    color:var(--midnight);
+    border:1.5px solid var(--line-warm);
+    min-height:540px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+  }
+  .card-practice::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(ellipse at top right, rgba(167,139,250,0.1) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .card-practice .card-number{color:var(--violet-deep)}
+  .card-practice .card-tag{color:var(--violet-deep);border-color:rgba(76,29,149,0.35)}
+  .card-practice .card-price{color:var(--violet-deep)}
+  .card-practice .card-price-row{border-color:var(--line-warm)}
+
+  .card-care{
+    background:var(--cognac);
+    color:var(--midnight);
+    min-height:340px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .card-care::before{
+    content:"";
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:300px;height:300px;
+    background:radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .card-hosting{
+    background:var(--ink);
+    color:var(--cream);
+    min-height:340px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border:1px solid rgba(255,255,255,0.05);
+  }
+  .card-hosting .card-tag{color:var(--cognac-light);border-color:rgba(232,167,102,0.4)}
+  .card-hosting::before{
+    content:"";
+    position:absolute;
+    bottom:-50px;right:-50px;
+    width:200px;height:200px;
+    border-radius:50%;
+    border:1.5px solid rgba(200,132,61,0.25);
+    pointer-events:none;
+  }
+  .card-hosting::after{
+    content:"";
+    position:absolute;
+    bottom:-80px;right:-80px;
+    width:260px;height:260px;
+    border-radius:50%;
+    border:1.5px solid rgba(200,132,61,0.15);
+    pointer-events:none;
+  }
+
+  .card-templates{
+    background:var(--violet-pale);
+    color:var(--violet-deep);
+    min-height:340px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border:1.5px solid rgba(167,139,250,0.3);
+  }
+  .card-templates::before{
+    content:"";
+    position:absolute;
+    top:32px;right:32px;
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--violet);
+    opacity:0.2;
+  }
+  .card-templates::after{
+    content:"COMING SOON";
+    position:absolute;
+    bottom:32px;right:32px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.22em;
+    color:var(--violet-deep);
+    opacity:0.85;
+    font-weight:700;
+  }
+
+  .editorial-card:hover{
+    transform:translateY(-4px);
+  }
 
   /* ---------- PROOF ---------- */
-  .proof{background:var(--violet-900);color:#fff;position:relative;overflow:hidden}
-  .proof::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.4),transparent 70%)}
-  .proof .section-title{color:#fff}
-  .proof .section-title em{color:var(--amber)}
-  .proof .section-lead{color:rgba(255,255,255,.7)}
-  .proof .section-label{color:var(--amber)}
-  .proof .section-label .dot{background:var(--amber)}
-  .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:2}
-  .case{padding:32px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:all .3s}
-  .case:hover{background:rgba(255,255,255,.07);border-color:var(--violet-400)}
-  .case .num{font-family:'Fraunces',serif;font-size:14px;color:var(--amber);margin-bottom:24px;font-style:italic}
-  .case h4{font-family:'Fraunces',serif;font-size:24px;font-weight:400;margin-bottom:10px;letter-spacing:-0.01em}
-  .case p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.55}
-  .case .link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--amber);font-size:13px}
+  .proof{
+    background:var(--ink);
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .proof::before{
+    content:"";
+    position:absolute;
+    top:-300px;right:-300px;
+    width:800px;height:800px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(200,132,61,0.14) 0%, transparent 70%);
+  }
+  .proof .section-title{color:var(--cream)}
+  .proof .section-title em{color:var(--cognac-light)}
+  .proof .section-lead{color:rgba(245,240,230,0.8)}
+  .proof .section-label{color:var(--cognac-light)}
+  .proof .section-label .dot{background:var(--cognac)}
+  
+  .proof-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    position:relative;
+    z-index:2;
+  }
+  .case{
+    padding:40px 36px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.04);
+    border:1.5px solid rgba(255,255,255,0.1);
+    transition:all 0.4s ease;
+    position:relative;
+  }
+  .case:hover{
+    background:rgba(255,255,255,0.06);
+    border-color:rgba(232,167,102,0.4);
+    transform:translateY(-2px);
+  }
+  .case .case-num{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:14px;
+    color:var(--cognac-light);
+    margin-bottom:32px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .case .case-num::before{
+    content:"";
+    width:24px;height:1.5px;
+    background:var(--cognac);
+  }
+  .case h4{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:32px;
+    line-height:1.1;
+    margin-bottom:12px;
+    letter-spacing:-0.02em;
+    color:var(--cream);
+  }
+  .case h4 em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    color:var(--cognac-light);
+    font-weight:400;
+  }
+  .case p{
+    font-size:15px;
+    color:rgba(245,240,230,0.8);
+    line-height:1.65;
+    font-weight:500;
+  }
+  .case .link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:24px;
+    color:var(--cognac-light);
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:16px;
+    font-weight:600;
+    transition:gap 0.3s;
+  }
+  .case .link:hover{gap:14px}
 
   /* ---------- PROCESS ---------- */
-  .process{background:#fff}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line-dark);padding-top:48px}
-  .step .n{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--violet-500);margin-bottom:20px}
-  .step h4{font-family:'Fraunces',serif;font-size:28px;font-weight:400;margin-bottom:12px;letter-spacing:-0.015em}
-  .step p{font-size:14px;color:#5a4870;line-height:1.6}
+  .process{background:var(--cream)}
+  .process-header{margin-bottom:80px}
+  
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    border-top:1.5px solid var(--line-warm);
+  }
+  .step{
+    padding:48px 32px 48px 0;
+    border-right:1.5px solid var(--line-warm);
+    position:relative;
+  }
+  .step:last-child{border-right:none;padding-right:0}
+  .step:first-child{padding-left:0}
+  .step:not(:first-child){padding-left:32px}
+  
+  .step .n{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-style:italic;
+    font-weight:600;
+    font-size:14px;
+    color:var(--cognac-dark);
+    margin-bottom:32px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .step .n::before{
+    content:"";
+    width:24px;height:1.5px;
+    background:var(--cognac);
+  }
+  .step h4{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:30px;
+    line-height:1.1;
+    margin-bottom:14px;
+    letter-spacing:-0.02em;
+    color:var(--midnight);
+  }
+  .step h4 em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    color:var(--cognac-dark);
+    font-weight:400;
+  }
+  .step p{
+    font-size:15px;
+    color:var(--text-muted);
+    line-height:1.65;
+    font-weight:500;
+  }
 
   /* ---------- CTA ---------- */
-  .cta{background:var(--violet-600);color:#fff;text-align:center;position:relative;overflow:hidden}
-  .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,var(--violet-400),transparent 60%);opacity:.4}
+  .cta{
+    background:var(--midnight);
+    color:#fff;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(200,132,61,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 0%, rgba(76,29,149,0.3) 0%, transparent 50%);
+    opacity:0.8;
+  }
   .cta-inner{position:relative;z-index:2}
-  .cta h2{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(40px,6vw,84px);line-height:1.02;letter-spacing:-0.03em;max-width:900px;margin:0 auto 32px}
-  .cta h2 span{color:var(--amber);font-style:normal}
-  .cta .btn-primary{background:#fff;color:var(--violet-700)}
-  .cta .btn-primary:hover{background:var(--amber)}
+  
+  .search-bar-animation{
+    max-width:520px;
+    margin:0 auto 64px;
+    animation:fadeInUp 1s 0.2s ease both;
+  }
+  .search-input{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1.5px solid rgba(255,255,255,0.18);
+    border-radius:100px;
+    padding:16px 26px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.3),
+                inset 0 1px 1px rgba(255,255,255,0.1);
+  }
+  .search-icon{
+    width:20px;height:20px;
+    color:var(--cognac-light);
+    flex-shrink:0;
+    stroke-width:2;
+  }
+  .search-text{
+    font-size:15px;
+    color:rgba(255,255,255,0.95);
+    flex:1;
+    text-align:left;
+    font-family:'Inter Tight',sans-serif;
+    letter-spacing:0.01em;
+    font-weight:500;
+  }
+  .cursor{
+    color:var(--cognac);
+    font-weight:600;
+    animation:blink 1.1s infinite;
+    font-size:16px;
+  }
+
+  .cta h2{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:500;
+    font-size:clamp(48px,7vw,108px);
+    line-height:0.98;
+    letter-spacing:-0.04em;
+    max-width:980px;
+    margin:0 auto 48px;
+    color:#fff;
+  }
+  .cta h2 .search-emphasis{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--cognac-light);
+    position:relative;
+  }
+  .cta h2 .search-emphasis::after{
+    content:"";
+    position:absolute;
+    bottom:-4px;left:0;right:0;
+    height:2px;
+    background:linear-gradient(90deg, transparent, var(--cognac), transparent);
+    transform:scaleX(0);
+    transform-origin:center;
+    animation:underlineGrow 1.5s 1s ease-out both;
+  }
+  @keyframes underlineGrow{
+    to{transform:scaleX(1)}
+  }
+  
+  .cta .btn-primary{
+    background:var(--cognac);
+    color:var(--midnight);
+    border-color:var(--cognac);
+  }
+  .cta .btn-primary:hover{
+    background:var(--cream);
+    border-color:var(--cream);
+    color:var(--midnight);
+  }
+
+  @keyframes fadeInUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes blink{
+    0%,100%{opacity:1}
+    50%{opacity:0}
+  }
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--ink);color:rgba(255,255,255,.6);padding:64px 0 40px}
-  .foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px}
-  .foot .brand{color:#fff}
-  .foot-links{display:flex;gap:24px;font-size:13px}
-  .foot-meta{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:40px;border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between}
+  footer{
+    background:var(--ink);
+    color:rgba(245,240,230,0.75);
+    padding:80px 0 40px;
+    position:relative;
+  }
+  .foot{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:48px;
+    margin-bottom:60px;
+  }
+  .foot-brand h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:32px;
+    letter-spacing:-0.02em;
+    color:var(--cream);
+    margin-bottom:14px;
+  }
+  .foot-brand p{
+    font-size:14px;
+    line-height:1.7;
+    max-width:280px;
+    font-weight:500;
+  }
+  .foot-col h5{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--cognac-light);
+    margin-bottom:20px;
+    font-weight:700;
+  }
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot-col a{
+    font-size:14px;
+    transition:color 0.2s;
+    font-weight:500;
+  }
+  .foot-col a:hover{color:var(--cognac-light)}
+  
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:rgba(245,240,230,0.55);
+    font-weight:600;
+  }
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width:900px){
+  @media (max-width:1024px){
+    .editorial-grid{grid-template-columns:1fr;gap:24px}
+    .editorial-grid-bottom{grid-template-columns:1fr;gap:24px}
+    .services-header{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:40px}
+    .hero-grid{grid-template-columns:1fr;gap:48px}
+    .readout{display:none}
+    .proof-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .step{border-right:none;border-bottom:1.5px solid var(--line-warm);padding:32px 0!important}
+    .step:last-child{border-bottom:none}
+    .foot{grid-template-columns:1fr 1fr;gap:32px}
+  }
+  
+  @media (max-width:640px){
     section{padding:80px 0}
     .container{padding:0 20px}
     .nav-links{display:none}
-    .hero-grid{grid-template-columns:1fr;gap:48px}
-    .about-grid{grid-template-columns:1fr;gap:40px}
-    .about-stats{border-left:none;border-top:1px solid var(--violet-200);padding-left:0;padding-top:32px}
-    .bento{grid-template-columns:repeat(2,1fr)}
-    .b1,.b2{grid-column:span 2;grid-row:span 1}
-    .b3,.b4,.b5{grid-column:span 2}
-    .proof-grid,.steps{grid-template-columns:1fr}
+    .nav{padding:14px 0}
+    .hero-inner{padding-top:100px}
+    .editorial-card{padding:32px 28px}
+    .card-portfolio,.card-practice{min-height:auto}
+    .foot{grid-template-columns:1fr}
+    .foot-bottom{flex-direction:column;gap:12px;text-align:center}
+    .issue-mark{display:none}
   }
 </style>
 </head>
-  <script>
-  const parallax = document.getElementById('heroParallax');
-  const wrap = document.querySelector('.hero');
-  let targetX=0,targetY=0,currentX=0,currentY=0;
-  wrap.addEventListener('mousemove',(e)=>{
-    const r=wrap.getBoundingClientRect();
-    targetX=((e.clientX-r.width/2)/r.width)*12;
-    targetY=((e.clientY-r.height/2)/r.height)*12;
-  });
-  wrap.addEventListener('mouseleave',()=>{targetX=0;targetY=0});
-  function animate(){
-    currentX+=(targetX-currentX)*0.05;
-    currentY+=(targetY-currentY)*0.05;
-    parallax.style.transform=`translate3d(${currentX}px,${currentY}px,0)`;
-    requestAnimationFrame(animate);
-  }
-  animate();
-</script>
 <body>
 
-<!-- ============ HERO ============ -->
-<header class="hero">
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#" class="brand"><span class="brand-dot"></span>Glasswing</a>
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
-      </div>
-      <a href="#contact" class="nav-cta">Start a project</a>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-mark"></span>
+      glasswing
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="#process">Process</a>
+      <a href="#about">Studio</a>
+      <a href="https://cal.com/glasswingdigital" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
     </div>
-  </nav>
-
- <div class="hero-bg">
-    <div class="hero-parallax" id="heroParallax">
-      <img src="assets/hero.jpg" alt="Abstract violet and amber light study" class="hero-image-anim" />
-    </div>
-    <div class="light-sweep"></div>
-    <div class="ambient-glow"></div>
-    <div class="grain"></div>
   </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg">
+    <img src="assets/hero.jpg" alt="Abstract violet and amber light study" />
+  </div>
+  
+  <span class="issue-mark">№ 2501, Spring 2026</span>
 
   <div class="container hero-inner">
     <div class="hero-grid">
-      <!-- Left readout -->
       <div class="readout">
         <div class="readout-bar">
-          <span class="mono">N° 2501</span>
+          <span>EST. LONDON</span>
           <span class="line"></span>
-          <span class="mono">EST. LONDON</span>
+          <span>2026</span>
         </div>
         <div class="readout-block">
-          STUDIO / GLASSWING DIGITAL<br/>
-          <strong>FOCUS</strong> &nbsp;CONSULTANCIES · LAW · SOLO PROFESSIONALS<br/>
-          <strong>METHOD</strong> &nbsp;AI-ASSISTED · HUMAN-FINISHED<br/>
-          <strong>OUTPUT</strong> &nbsp;EDITORIAL WEBSITES, BUILT TO LAST<br/><br/>
-          → 06 LIVE PROJECTS<br/>
-          → 14 DRAFTS IN MOTION<br/>
-          → BOOKING Q3 / 2026
+          <strong>STUDIO</strong><br/>
+          Glasswing Digital<br/><br/>
+          <strong>FOCUS</strong><br/>
+          Consultancies, Law<br/>
+          Solo Professionals<br/><br/>
+          <strong>METHOD</strong><br/>
+          AI-assisted<br/>
+          Human-finished<br/><br/>
+          <strong>OUTPUT</strong><br/>
+          Editorial websites,<br/>
+          built to last
         </div>
       </div>
 
-      <!-- Right headline -->
       <div>
         <h1 class="headline">
-          Websites for<br/>
-          professionals<br/>
-          who deserve<br/>
-          <em>better.</em>
+          A digital presence<br/>
+          designed to move<br/>
+          you <em>forward.</em>
         </h1>
         <p class="headline-sub">
-          Glasswing builds quiet, considered websites for solo consultants and small firms — the kind of work that earns trust before the first call.
+          Thoughtful web design for consultants, firms and solo professionals ready to scale. We bridge the gap between where your business is and where it's going, making the internet your ultimate growth partner.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#services">See packages <span class="arrow">→</span></a>
-          <a class="btn btn-ghost" href="#work">View work</a>
+          <a class="btn btn-primary" href="https://cal.com/glasswingdigital" target="_blank" rel="noopener">Book a call <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="pricing.html">See pricing</a>
         </div>
       </div>
     </div>
 
     <div class="hero-meta">
-      <span>SCROLL ↓</span>
-      <span class="target">● TGT.LCK / READY TO BUILD</span>
+      <span>Scroll to begin</span>
+      <span class="target">Booking Q3 2026</span>
     </div>
   </div>
 </header>
 
-<!-- ============ MARQUEE ============ -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>Web Design</span><span>Brand Strategy</span><span>Copywriting</span><span>SEO Foundations</span><span>Care & Hosting</span><span>Conversion</span>
-    <span>Web Design</span><span>Brand Strategy</span><span>Copywriting</span><span>SEO Foundations</span><span>Care & Hosting</span><span>Conversion</span>
+    <span>Editorial Web Design</span>
+    <span>Brand Strategy</span>
+    <span>Copywriting</span>
+    <span>SEO Foundations</span>
+    <span>Care & Hosting</span>
+    <span>Conversion</span>
+    <span>Editorial Web Design</span>
+    <span>Brand Strategy</span>
+    <span>Copywriting</span>
+    <span>SEO Foundations</span>
+    <span>Care & Hosting</span>
+    <span>Conversion</span>
   </div>
 </div>
 
-<!-- ============ ABOUT ============ -->
 <section class="about" id="about">
   <div class="container">
-    <div class="section-label"><span class="dot"></span><span class="mono">About the studio</span></div>
+    <div class="section-label"><span class="dot"></span><span>Why Glasswing</span></div>
     <div class="about-grid">
-      <p>
-        We build for people whose work speaks for itself — and whose websites haven't caught up yet. <em>Every site is hand-finished</em>, not templated. No bloated builders. No generic AI gloss.
+      <p class="about-prose">
+        You didn't start your business to spend hours worrying about web design, code, or digital strategy. You started it to do <em>great work</em> for your clients. As you scale, your website shouldn't be an afterthought. <em>It should be your most valuable asset.</em> Partner with us to turn the internet into your growth engine. We do the heavy lifting, designing custom websites built to earn trust and showcase your value.
       </p>
       <div class="about-stats">
-        <div class="stat"><div class="num">7d</div><div class="lbl">Average time to first draft</div></div>
-        <div class="stat"><div class="num">100%</div><div class="lbl">Hand-finished, never templated</div></div>
-        <div class="stat"><div class="num">£50/mo</div><div class="lbl">Care plans, hosting included</div></div>
+        <div class="stat">
+          <div class="num">7d</div>
+          <div class="lbl">Average time<br/>to first draft</div>
+        </div>
+        <div class="stat">
+          <div class="num">100%</div>
+          <div class="lbl">Hand-finished,<br/>never templated</div>
+        </div>
+        <div class="stat">
+          <div class="num">£50</div>
+          <div class="lbl">Care plans from,<br/>hosting included</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SERVICES BENTO ============ -->
 <section class="services" id="services">
   <div class="container">
-    <div class="section-label"><span class="dot"></span><span class="mono">Services & Pricing</span></div>
-    <h2 class="section-title">Two ways to <em>begin.</em><br/>One studio, end to end.</h2>
-    <p class="section-lead">Fixed scope. Fixed price. A care plan that keeps things sharp once you're live — hosting, updates, and the small fixes that always come up.</p>
+    <div class="services-header">
+      <div>
+        <div class="section-label"><span class="dot"></span><span>Services & Pricing</span></div>
+        <h2 class="section-title">Two ways<br/>to <em>begin.</em></h2>
+      </div>
+      <p class="section-lead" style="margin-bottom:0">
+        Fixed scope. Fixed price. A care plan that keeps things sharp once you're live, including hosting, updates, and the small fixes that always come up.
+      </p>
+    </div>
 
-    <div class="bento">
-      <!-- Big primary -->
-      <article class="b1 box">
+    <div class="editorial-grid">
+      <article class="editorial-card card-portfolio">
         <div>
-          <span class="tag">For solo professionals</span>
-          <h3 class="serif" style="margin-top:18px">The <em>Portfolio</em></h3>
-          <p style="margin-top:14px;max-width:340px">A focused, single-page site that introduces you, your work, and how to get in touch. Built in days, not months.</p>
-          <ul>
+          <div class="card-number">№ 01</div>
+          <span class="card-tag">For solo professionals</span>
+          <h3 class="card-title">The <em>Portfolio.</em></h3>
+          <p class="card-desc">
+            A focused, single-page site that introduces you, your work, and how to get in touch. Built in days, not months.
+          </p>
+          <ul class="card-list">
             <li>Single-page editorial design</li>
             <li>Copywriting from your brief</li>
             <li>Domain + hosting setup</li>
             <li>SEO foundations & analytics</li>
           </ul>
         </div>
-        <div class="price">£300<small>one-time</small></div>
+        <div class="card-price-row">
+          <div class="card-price">£400<small>One-time investment</small></div>
+          <a href="https://cal.com/glasswingdigital" target="_blank" class="card-link">Enquire →</a>
+        </div>
       </article>
 
-      <!-- Big secondary -->
-      <article class="b2 box">
+      <article class="editorial-card card-practice">
         <div>
-          <span class="tag">For consultancies & law firms</span>
-          <h3 class="serif" style="margin-top:18px">The <em>Practice</em></h3>
-          <p style="margin-top:14px;max-width:340px">A multi-page site that establishes authority — services, team, case studies, and a clear path to enquire.</p>
-          <ul>
+          <div class="card-number">№ 02</div>
+          <span class="card-tag">Consultancies & firms</span>
+          <h3 class="card-title">The <em>Practice.</em></h3>
+          <p class="card-desc">
+            A multi-page site that establishes authority through services, team, case studies, and a clear path to enquire.
+          </p>
+          <ul class="card-list">
             <li>Up to 6 pages, editorial layouts</li>
             <li>Copywriting + content strategy</li>
             <li>Lead capture & enquiry routing</li>
             <li>SEO foundations & analytics</li>
           </ul>
         </div>
-        <div class="price">£1,000<small>one-time</small></div>
+        <div class="card-price-row">
+          <div class="card-price">£1,500<small>One-time investment</small></div>
+          <a href="https://cal.com/glasswingdigital" target="_blank" class="card-link">Enquire →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="editorial-grid-bottom">
+      <article class="editorial-card card-care">
+        <div>
+          <div class="card-number">№ 03</div>
+          <span class="card-tag">Care plan</span>
+          <h3 class="card-title" style="font-size:36px">Keep it <em>sharp.</em></h3>
+        </div>
+        <div>
+          <p class="card-desc" style="margin-bottom:20px">
+            Hosting on Namecheap included. Updates, backups, small content edits, all covered monthly.
+          </p>
+          <div class="card-price" style="font-size:42px">From £50<small>per month</small></div>
+        </div>
       </article>
 
-      <!-- Care plan -->
-      <article class="b3 box">
+      <article class="editorial-card card-hosting">
         <div>
-          <span class="tag">Care plan</span>
-          <h3 class="serif" style="margin-top:14px">Keep it <em>sharp.</em></h3>
+          <div class="card-number" style="color:var(--cognac-light)">№ 04</div>
+          <span class="card-tag">Hosting</span>
+          <h3 class="card-title" style="font-size:36px">Domain &<br/>hosting, <em>handled.</em></h3>
         </div>
-        <p>From £50/mo. Hosting on Namecheap included. Updates, backups, small content edits — covered.</p>
+        <p class="card-desc">
+          We set up your domain, mailbox forwarding and SSL, bundled into the care plan so you don't manage vendors.
+        </p>
       </article>
 
-      <!-- Hosting -->
-      <article class="b4 box">
+      <article class="editorial-card card-templates">
         <div>
-          <span class="tag" style="color:var(--amber);border-color:var(--amber)">Hosting</span>
-          <h3 class="serif" style="margin-top:14px">Domain &<br/>hosting, <em>handled.</em></h3>
+          <div class="card-number" style="color:var(--violet-deep)">№ 05</div>
+          <h3 class="card-title" style="font-size:36px">Templates,<br/>by <em>Glasswing.</em></h3>
         </div>
-        <p>We set up your domain, mailbox forwarding and SSL — bundled into the care plan so you don't manage vendors.</p>
-      </article>
-
-      <!-- Templates -->
-      <article class="b5 box">
-        <div>
-          <span class="tag">Coming soon</span>
-          <h3 class="serif" style="margin-top:14px">Templates,<br/>by <em>Glasswing.</em></h3>
-        </div>
-        <p>A small library of Canva-based templates for when you need to move yesterday. Available shortly.</p>
+        <p class="card-desc">
+          A small library of Canva-based templates for when you need to move yesterday. Available shortly.
+        </p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ PROOF ============ -->
-<section class="proof" id="work">
+<section class="proof">
   <div class="container">
-    <div class="section-label"><span class="dot"></span><span class="mono">Selected work</span></div>
-    <h2 class="section-title">Quiet sites that <em>do the talking.</em></h2>
-    <p class="section-lead">A small, deliberate body of work. Each project below was scoped, designed, written and shipped by the studio.</p>
+    <div class="services-header">
+      <div>
+        <div class="section-label"><span class="dot"></span><span>Selected Work</span></div>
+        <h2 class="section-title">Sites that<br/><em>do the work.</em></h2>
+      </div>
+      <p class="section-lead" style="margin-bottom:0">
+        A small selection of recent projects. Built to earn trust before the first phone call, not to win design awards.
+      </p>
+    </div>
 
     <div class="proof-grid">
-      <a class="case" href="https://towobola-od.github.io/" target="_blank" rel="noopener">
-        <div class="num">— 01 / Personal</div>
-        <h4>Towobola O.</h4>
-        <p>The studio's founder site. A calm, single-page portfolio with a focus on type, restraint and trust.</p>
-        <span class="link">View live →</span>
-      </a>
-      <div class="case">
-        <div class="num">— 02 / Template</div>
-        <h4>Counsel Co.</h4>
-        <p>A multi-page template for boutique law firms — services, team, case studies and enquiries.</p>
-        <span class="link">Available in templates →</span>
-      </div>
-      <div class="case">
-        <div class="num">— 03 / Template</div>
-        <h4>Atelier Advisory</h4>
-        <p>An editorial layout for independent consultants — long-form thinking, lead capture, light CMS.</p>
-        <span class="link">Available in templates →</span>
-      </div>
+      <article class="case">
+        <div class="case-num">№ 01, Aldridge & Partners</div>
+        <h4>Editorial site for an <em>accounting</em> firm.</h4>
+        <p>Dark luxury aesthetic with editorial typography and case-led narrative. Designed to reposition a traditional firm for a modern client base.</p>
+        <a href="#" class="link">View project →</a>
+      </article>
+      <article class="case">
+        <div class="case-num">№ 02, Independent counsel</div>
+        <h4>A <em>portfolio</em> that closes warm leads.</h4>
+        <p>Single-page site for a solo barrister focused on credibility, expertise signals, and a strong invitation to enquire.</p>
+        <a href="#" class="link">View project →</a>
+      </article>
+      <article class="case">
+        <div class="case-num">№ 03, Boutique consultancy</div>
+        <h4>Brand refresh meets <em>web rebuild.</em></h4>
+        <p>Full multi-page rebuild paired with refreshed brand language. From dated to definitive in three weeks.</p>
+        <a href="#" class="link">View project →</a>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
 <section class="process" id="process">
   <div class="container">
-    <div class="section-label"><span class="dot"></span><span class="mono">How we work</span></div>
-    <h2 class="section-title">A clear path from <em>brief to live.</em></h2>
-    <p class="section-lead">No retainers to start. No surprise scope. We agree the plan, then we build it.</p>
+    <div class="process-header">
+      <div class="section-label"><span class="dot"></span><span>The Process</span></div>
+      <h2 class="section-title">From first hello<br/>to <em>live site.</em></h2>
+    </div>
 
     <div class="steps">
-      <div class="step"><div class="n">— i.</div><h4>Discovery</h4><p>A 30-minute call. We agree the audience, the pages, and the outcome you need from the site.</p></div>
-      <div class="step"><div class="n">— ii.</div><h4>Design</h4><p>You see a first draft within seven days. We refine over two short rounds — no endless feedback loops.</p></div>
-      <div class="step"><div class="n">— iii.</div><h4>Words</h4><p>Copy written from your brief and our conversation. Plain English, considered, edited to fit.</p></div>
-      <div class="step"><div class="n">— iv.</div><h4>Launch</h4><p>Domain, hosting, analytics, SEO — set up and handed over. Care plan begins the week after.</p></div>
+      <div class="step">
+        <div class="n">№ 01, Discovery</div>
+        <h4>A proper <em>conversation.</em></h4>
+        <p>We talk about your business, goals, and what your site needs to do. No jargon, no pressure. You leave with clarity, even if we don't work together.</p>
+      </div>
+      <div class="step">
+        <div class="n">№ 02, Design</div>
+        <h4>Design & <em>build.</em></h4>
+        <p>I design and build your site with care, keeping you in the loop. You see drafts as they evolve. Deposit secures your slot.</p>
+      </div>
+      <div class="step">
+        <div class="n">№ 03, Refine</div>
+        <h4>Review & <em>refine.</em></h4>
+        <p>You review the site and we tweak until every detail is exactly right. Two rounds of revisions included.</p>
+      </div>
+      <div class="step">
+        <div class="n">№ 04, Launch</div>
+        <h4>Go <em>live.</em></h4>
+        <p>We connect your domain, run final checks, and launch. Then your care plan begins, or doesn't. Your choice.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
 <section class="cta" id="contact">
   <div class="container cta-inner">
-    <h2>Your next client is <span>already</span> looking for someone like you.</h2>
-    <a class="btn btn-primary" href="mailto:hello@glasswingdigital.co.uk">Start a project <span class="arrow">→</span></a>
+    <div class="search-bar-animation">
+      <div class="search-input">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <span class="search-text">professional services web design near me</span>
+        <span class="cursor">|</span>
+      </div>
+    </div>
+    
+    <h2>Your next client<br/>is <em class="search-emphasis">searching</em> for you.</h2>
+    <a class="btn btn-primary" href="https://cal.com/glasswingdigital" target="_blank" rel="noopener">Book a discovery call <span class="arrow">→</span></a>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="container">
     <div class="foot">
-      <a href="#" class="brand"><span class="brand-dot"></span>Glasswing Digital</a>
-      <div class="foot-links">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#process">Process</a>
-        <a href="mailto:hello@glasswingdigital.co.uk">Email</a>
+      <div class="foot-brand">
+        <h3>Glasswing</h3>
+        <p>Editorial websites for solo professionals, consultancies and law firms across the UK. Built to last, designed to earn trust.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="#process">Process</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="mailto:hello@glasswingdigital.co.uk">Email</a></li>
+          <li><a href="https://cal.com/glasswingdigital" target="_blank">Book a call</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
       </div>
     </div>
-    <div class="foot-meta">
-      <span>© 2026 GLASSWING DIGITAL</span>
-      <span>LONDON · UK</span>
-      <span>BUILT BY HAND</span>
+    <div class="foot-bottom">
+      <span>© 2026 Glasswing Digital</span>
+      <span>London, UK</span>
+      <span>Built by hand</span>
     </div>
   </div>
 </footer>
