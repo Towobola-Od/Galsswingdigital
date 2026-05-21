@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pricing — Glasswing Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600;1,9..144,700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0e0717;
+    --midnight: #1a0b2e;
+    --aubergine: #2d1b3d;
+    --violet-deep: #4c1d95;
+    --violet: #6d28d9;
+    --violet-light: #a78bfa;
+    --violet-pale: #ede9fe;
+    --cognac: #c8843d;
+    --cognac-light: #e8a766;
+    --cognac-dark: #7a4a1f;
+    --rust: #9c4221;
+    --cream: #faf6ee;
+    --almond: #ede2cf;
+    --sand: #d4c5a3;
+    --bone: #f5f0e6;
+    --sage: #5a7058;
+    --line: rgba(255,255,255,0.12);
+    --line-dark: rgba(14,7,23,0.14);
+    --line-warm: rgba(122,74,31,0.25);
+    --text-body: #2a1f3d;
+    --text-muted: #4a3a5e;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  
+  html,body{
+    background:var(--midnight);
+    color:var(--text-body);
+    font-family:'Inter Tight',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+    line-height:1.6;
+    font-weight:500;
+    overflow-x:hidden;
+  }
+  
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--cognac);color:var(--cream)}
+
+  .cosmic-bg{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+  }
+  .cosmic-bg img{
+    width:110%;
+    height:110%;
+    object-fit:cover;
+    filter:blur(28px) saturate(1.1);
+    transform:translate(-5%,-5%) scale(1.1);
+    opacity:0.8;
+  }
+  .cosmic-bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(26,11,46,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(200,132,61,0.1) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(26,11,46,0.2) 0%, rgba(26,11,46,0.5) 100%);
+  }
+
+  .content-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    border-radius:6px;
+  }
+
+  .content-container{
+    position:relative;
+    z-index:10;
+    min-height:100vh;
+    padding:60px 32px;
+  }
+
+  .content-box{
+    background:var(--cream);
+    border-radius:6px;
+    box-shadow:
+      0 60px 120px rgba(0,0,0,0.5),
+      0 30px 60px rgba(0,0,0,0.3),
+      0 0 0 1px rgba(255,255,255,0.05);
+    max-width:1280px;
+    margin:0 auto;
+    padding:60px 64px 80px;
+    position:relative;
+  }
+
+  .content-box::after{
+    content:"PRICING, № 2501";
+    position:absolute;
+    top:32px;
+    right:64px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--cognac-dark);
+    opacity:0.7;
+    z-index:5;
+    font-weight:700;
+  }
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:80px;
+    padding-bottom:32px;
+    border-bottom:1.5px solid var(--line-warm);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-size:26px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    color:var(--midnight);
+  }
+  .brand-mark{
+    width:28px;height:28px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--cognac), var(--cognac-light));
+    box-shadow:0 0 24px rgba(200,132,61,0.5), inset 0 1px 1px rgba(255,255,255,0.3);
+    position:relative;
+  }
+  .brand-mark::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background:var(--midnight);
+  }
+  .nav-links{display:flex;gap:32px;align-items:center}
+  .nav-links a{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--text-muted);
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--midnight)}
+  .nav-cta{
+    background:var(--midnight);
+    color:var(--cream);
+    padding:10px 20px;
+    border-radius:100px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    transition:all 0.3s;
+  }
+  .nav-cta:hover{
+    background:var(--cognac);
+    color:var(--midnight);
+  }
+
+  .hero{
+    text-align:center;
+    margin-bottom:80px;
+    position:relative;
+  }
+
+  .promo-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:48px;
+    padding:10px 6px 10px 20px;
+    background:var(--ink);
+    border-radius:100px;
+    box-shadow:
+      0 12px 32px rgba(76,29,149,0.3),
+      0 0 0 1.5px rgba(232,167,102,0.4),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+    position:relative;
+    overflow:hidden;
+  }
+  .promo-badge::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:linear-gradient(135deg, var(--cognac) 0%, var(--violet) 50%, var(--cognac) 100%);
+    border-radius:100px;
+    z-index:-1;
+    opacity:0.4;
+    animation:rotate 8s linear infinite;
+  }
+  @keyframes rotate{
+    from{filter:hue-rotate(0deg)}
+    to{filter:hue-rotate(360deg)}
+  }
+  .promo-dot{
+    width:7px;height:7px;
+    background:var(--cognac);
+    border-radius:50%;
+    animation:pulse 2s ease-in-out infinite;
+    box-shadow:0 0 12px var(--cognac);
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:0.5;transform:scale(0.7)}
+  }
+  .promo-text{
+    color:var(--cream);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+  }
+  .promo-count{
+    background:var(--cognac);
+    color:var(--ink);
+    padding:6px 14px;
+    border-radius:100px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:13px;
+  }
+
+  h1{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:clamp(56px, 7vw, 96px);
+    letter-spacing:-0.04em;
+    line-height:0.96;
+    margin-bottom:24px;
+    color:var(--midnight);
+  }
+  h1 em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--cognac-dark);
+  }
+
+  .hero-sub{
+    font-size:18px;
+    line-height:1.65;
+    color:var(--text-muted);
+    max-width:540px;
+    margin:0 auto 24px;
+    font-weight:500;
+  }
+
+  .section-divider{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    margin:80px 0 48px;
+  }
+  .section-divider .line{
+    flex:1;
+    height:1.5px;
+    background:var(--line-warm);
+  }
+  .section-divider .label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--cognac-dark);
+    font-weight:700;
+  }
+
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:32px;
+  }
+
+  .price-card{
+    position:relative;
+    padding:48px 44px;
+    border-radius:6px;
+    overflow:hidden;
+    transition:all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display:flex;
+    flex-direction:column;
+    min-height:580px;
+  }
+
+  .price-card-portfolio{
+    background:linear-gradient(135deg, var(--aubergine) 0%, var(--midnight) 100%);
+    color:var(--cream);
+    border:1px solid rgba(255,255,255,0.05);
+  }
+  .price-card-portfolio::before{
+    content:"";
+    position:absolute;
+    top:-100px;right:-100px;
+    width:400px;height:400px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(200,132,61,0.18) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .price-card-portfolio::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--cognac), transparent);
+    opacity:0.35;
+  }
+
+  .price-card-practice{
+    background:var(--cream);
+    color:var(--midnight);
+    border:1.5px solid var(--line-warm);
+    position:relative;
+  }
+  .price-card-practice::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse at top right, rgba(167,139,250,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(200,132,61,0.05) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .featured-mark{
+    position:absolute;
+    top:24px;
+    right:24px;
+    background:var(--cognac);
+    color:var(--ink);
+    padding:7px 14px;
+    border-radius:100px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.2em;
+    font-weight:700;
+    text-transform:uppercase;
+    z-index:2;
+  }
+
+  .care-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:32px;
+  }
+
+  .price-card-essential{
+    background:var(--bone);
+    color:var(--midnight);
+    border:1.5px solid var(--line-warm);
+    min-height:540px;
+  }
+  .price-card-essential::before{
+    content:"";
+    position:absolute;
+    top:-40px;left:-40px;
+    width:200px;height:200px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(90,112,88,0.15) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .price-card-premium{
+    background:var(--ink);
+    color:var(--cream);
+    border:1px solid rgba(255,255,255,0.05);
+    min-height:540px;
+  }
+  .price-card-premium::before{
+    content:"";
+    position:absolute;
+    bottom:-60px;right:-60px;
+    width:300px;height:300px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(200,132,61,0.18) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .card-number{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-style:italic;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.05em;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .card-number::after{
+    content:"";
+    flex:1;
+    height:1.5px;
+    background:currentColor;
+    opacity:0.25;
+    max-width:80px;
+  }
+
+  .card-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    padding:7px 14px;
+    border-radius:100px;
+    border:1.5px solid currentColor;
+    opacity:0.95;
+    margin-bottom:28px;
+    font-weight:700;
+  }
+
+  .card-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:48px;
+    line-height:0.98;
+    letter-spacing:-0.03em;
+    margin-bottom:12px;
+  }
+  .card-title em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    font-weight:400;
+  }
+
+  .card-subtitle{
+    font-size:15px;
+    line-height:1.55;
+    opacity:0.85;
+    margin-bottom:32px;
+    font-weight:500;
+  }
+
+  .price-block{
+    margin-bottom:32px;
+  }
+  .was-price{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:20px;
+    opacity:0.5;
+    text-decoration:line-through;
+    text-decoration-thickness:1.5px;
+    margin-bottom:4px;
+    display:inline-block;
+  }
+  .price-display{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:84px;
+    letter-spacing:-0.04em;
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .price-period{
+    font-family:'Inter Tight',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    opacity:0.75;
+    text-transform:uppercase;
+  }
+
+  .features{
+    list-style:none;
+    margin-bottom:36px;
+    flex:1;
+  }
+  .features li{
+    padding:14px 0;
+    border-bottom:1.5px solid currentColor;
+    border-color:rgba(125,125,125,0.18);
+    font-size:15px;
+    line-height:1.5;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    font-weight:500;
+  }
+  .features li::before{
+    content:"✦";
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:12px;
+    opacity:0.7;
+    flex-shrink:0;
+    font-weight:600;
+  }
+  .price-card-portfolio .features li,
+  .price-card-premium .features li{
+    border-color:rgba(255,255,255,0.12);
+  }
+
+  .card-cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:16px 26px;
+    border-radius:100px;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    transition:all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .price-card-portfolio .card-cta{
+    background:var(--cognac);
+    color:var(--midnight);
+  }
+  .price-card-portfolio .card-cta:hover{
+    background:var(--cognac-light);
+    transform:translateY(-1px);
+  }
+  .price-card-practice .card-cta{
+    background:var(--midnight);
+    color:var(--cream);
+  }
+  .price-card-practice .card-cta:hover{
+    background:var(--violet-deep);
+    transform:translateY(-1px);
+  }
+  .price-card-essential .card-cta{
+    background:var(--midnight);
+    color:var(--cream);
+  }
+  .price-card-essential .card-cta:hover{
+    background:var(--sage);
+  }
+  .price-card-premium .card-cta{
+    background:var(--cognac);
+    color:var(--ink);
+  }
+  .price-card-premium .card-cta:hover{
+    background:var(--cognac-light);
+  }
+  .arrow{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:600;
+    transition:transform 0.3s;
+  }
+  .card-cta:hover .arrow{transform:translateX(4px)}
+
+  .loyalty-note{
+    margin-top:80px;
+    padding:48px 56px;
+    background:linear-gradient(135deg, var(--almond) 0%, var(--bone) 100%);
+    border:1.5px solid var(--line-warm);
+    border-radius:6px;
+    position:relative;
+    overflow:hidden;
+  }
+  .loyalty-note::before{
+    content:"";
+    position:absolute;
+    top:-100px;right:-100px;
+    width:300px;height:300px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(200,132,61,0.15) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .loyalty-mark{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:14px;
+    color:var(--cognac-dark);
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .loyalty-mark::before{
+    content:"";
+    width:24px;height:1.5px;
+    background:var(--cognac);
+  }
+  .loyalty-note h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings: "opsz" 144;
+    font-weight:600;
+    font-size:32px;
+    line-height:1.15;
+    letter-spacing:-0.025em;
+    color:var(--midnight);
+    margin-bottom:16px;
+  }
+  .loyalty-note h3 em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;
+    color:var(--cognac-dark);
+    font-weight:400;
+  }
+  .loyalty-note p{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text-muted);
+    max-width:680px;
+    font-weight:500;
+  }
+
+  footer{
+    margin-top:80px;
+    padding-top:40px;
+    border-top:1.5px solid var(--line-warm);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    font-weight:600;
+  }
+  footer a{
+    color:var(--cognac-dark);
+    transition:color 0.2s;
+    font-weight:700;
+  }
+  footer a:hover{color:var(--midnight)}
+
+  .price-card:hover{
+    transform:translateY(-6px);
+  }
+
+  @media (max-width:1024px){
+    .pricing-grid,.care-grid{grid-template-columns:1fr}
+    .content-box{padding:48px 36px}
+    .content-box::after{display:none}
+  }
+  @media (max-width:640px){
+    .content-container{padding:20px 12px}
+    .content-box{padding:32px 24px}
+    nav{flex-direction:column;gap:24px;text-align:center;margin-bottom:48px}
+    .nav-links{flex-direction:column;gap:16px}
+    .price-card{padding:36px 28px;min-height:auto}
+    .price-display{font-size:64px}
+    .card-title{font-size:36px}
+    .promo-badge{flex-wrap:wrap;justify-content:center;gap:8px}
+    footer{flex-direction:column;gap:12px;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="cosmic-bg">
+  <img src="assets/hero.jpg" alt="">
+</div>
+
+<div class="content-container">
+  <div class="content-box">
+    <nav>
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        glasswing
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="index.html#process">Process</a>
+        <a href="https://cal.com/glasswingdigital" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="promo-badge">
+        <span class="promo-dot"></span>
+        <span class="promo-text">Early Client Offer</span>
+        <span class="promo-count">50% off, 3 spots</span>
+      </div>
+      <h1>Clear pricing,<br/>no <em>surprises.</em></h1>
+      <p class="hero-sub">Two website tiers, two care plans. Our first three clients save 50% and lock in promotional care plan rates as long as they stay.</p>
+    </section>
+
+    <div class="section-divider">
+      <span class="line"></span>
+      <span class="label">Website Packages</span>
+      <span class="line"></span>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="price-card price-card-portfolio">
+        <div class="card-number">№ 01, Portfolio</div>
+        <span class="card-tag">For solo professionals</span>
+        <h2 class="card-title">The <em>Portfolio.</em></h2>
+        <p class="card-subtitle">A single-page editorial site that introduces you, your work, and how to get in touch.</p>
+        
+        <div class="price-block">
+          <span class="was-price">was £400</span>
+          <div class="price-display">£200</div>
+          <span class="price-period">One-time, Early client rate</span>
+        </div>
+
+        <ul class="features">
+          <li>Single-page editorial design</li>
+          <li>Mobile-responsive layouts</li>
+          <li>Professional copywriting</li>
+          <li>SEO foundations & analytics</li>
+          <li>2 rounds of revisions</li>
+          <li>Delivered in 2 to 3 weeks</li>
+        </ul>
+
+        <a href="https://cal.com/glasswingdigital" target="_blank" rel="noopener" class="card-cta">
+          Book discovery call <span class="arrow">→</span>
+        </a>
+      </article>
+
+      <article class="price-card price-card-practice">
+        <span class="featured-mark">Most Popular</span>
+        <div class="card-number">№ 02, Practice</div>
+        <span class="card-tag">Consultancies & law firms</span>
+        <h2 class="card-title">The <em>Practice.</em></h2>
+        <p class="card-subtitle">A multi-page site that establishes authority through services, team, case studies, and a clear path to enquire.</p>
+        
+        <div class="price-block">
+          <span class="was-price">was £1,500</span>
+          <div class="price-display">£750</div>
+          <span class="price-period">One-time, Early client rate</span>
+        </div>
+
+        <ul class="features">
+          <li>Up to 6 pages, editorial layouts</li>
+          <li>Service pages & case studies</li>
+          <li>Team bios & expertise sections</li>
+          <li>Lead capture & enquiry routing</li>
+          <li>Google Analytics setup</li>
+          <li>Priority support throughout</li>
+          <li>Delivered in 3 to 4 weeks</li>
+        </ul>
+
+        <a href="https://cal.com/glasswingdigital" target="_blank" rel="noopener" class="card-cta">
+          Book discovery call <span class="arrow">→</span>
+        </a>
+      </article>
+    </div>
+
+    <div class="section-divider">
+      <span class="line"></span>
+      <span class="label">Ongoing Care Plans</span>
+      <span class="line"></span>
+    </div>
+
+    <div class="care-grid">
+      <article class="price-card price-card-essential">
+        <div class="card-number">№ 03, Essential</div>
+        <span class="card-tag">Hands-off peace of mind</span>
+        <h2 class="card-title">Essential <em>Care.</em></h2>
+        <p class="card-subtitle">Hosting, security, backups, and small content edits, all covered monthly.</p>
+        
+        <div class="price-block">
+          <div class="price-display">£50</div>
+          <span class="price-period">Per month, Early clients lock this in</span>
+        </div>
+
+        <ul class="features">
+          <li>Namecheap hosting & SSL included</li>
+          <li>Daily automated backups</li>
+          <li>Security & malware monitoring</li>
+          <li>Uptime monitoring</li>
+          <li>Small content edits (text & images)</li>
+          <li>Email support, 48hr response</li>
+        </ul>
+
+        <a href="https://cal.com/glasswingdigital" target="_blank" rel="noopener" class="card-cta">
+          Get started <span class="arrow">→</span>
+        </a>
+      </article>
+
+      <article class="price-card price-card-premium">
+        <div class="card-number">№ 04, Premium</div>
+        <span class="card-tag">For active growth</span>
+        <h2 class="card-title">Premium <em>Care.</em></h2>
+        <p class="card-subtitle">Everything in Essential, plus development hours, SEO monitoring and strategic input.</p>
+        
+        <div class="price-block">
+          <div class="price-display">£150</div>
+          <span class="price-period">Per month, Full pricing</span>
+        </div>
+
+        <ul class="features">
+          <li>Everything in Essential, plus:</li>
+          <li>Priority support, 24hr response</li>
+          <li>Unlimited small content changes</li>
+          <li>2hrs development work per month</li>
+          <li>Monthly performance reports</li>
+          <li>SEO monitoring & recommendations</li>
+          <li>Proactive improvement suggestions</li>
+        </ul>
+
+        <a href="https://cal.com/glasswingdigital" target="_blank" rel="noopener" class="card-cta">
+          Get started <span class="arrow">→</span>
+        </a>
+      </article>
+    </div>
+
+    <div class="loyalty-note">
+      <div class="loyalty-mark">A note on early clients</div>
+      <h3>Loyalty <em>locked in.</em></h3>
+      <p>Our first three clients retain their £50/month Essential Care rate as long as their plan stays active, even when our pricing increases. Think of it as a thank you for trusting us when we were just getting started.</p>
+    </div>
+
+    <footer>
+      <span>© 2026 Glasswing Digital</span>
+      <span><a href="terms.html">Terms</a> / <a href="privacy.html">Privacy</a></span>
+      <span>London, UK</span>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
